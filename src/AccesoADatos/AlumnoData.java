@@ -10,5 +10,5 @@ package AccesoADatos;
  * @author Kanji
  */
 public class AlumnoData {
-    
+   kkdkdk 
 }
