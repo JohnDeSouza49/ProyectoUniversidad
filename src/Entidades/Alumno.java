@@ -10,5 +10,5 @@ package Entidades;
  * @author Kanji
  */
 public class Alumno {
-    
+    private int id;
 }
