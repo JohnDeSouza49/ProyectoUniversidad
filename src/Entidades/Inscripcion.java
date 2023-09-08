@@ -18,10 +18,8 @@ private int idMateria;
         this.nota = nota;
         this.idAlumno = idAlumno;
         this.idMateria = idMateria;
-    }
 
-    public Inscripcion() {
-    }
+   }
 
     public int getIdInscripto() {
         return idInscripto;
@@ -54,5 +52,4 @@ private int idMateria;
     public void setIdMateria(int idMateria) {
         this.idMateria = idMateria;
     }
-
 }
