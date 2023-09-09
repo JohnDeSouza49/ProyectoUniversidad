@@ -10,35 +10,34 @@ package AccesoADatos;
  * @author Kanji
  */
 import java.sql.Connection;
-import java.sql.DriverManager;  // 
+import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class Conexion {
 
-    private String url;
-    private String usuario;    // root
-    private String password;   // ""
+    private static final String URL = "jdbc:mariadb://localhost/";
+    private static final String DB = "universidadgrupo57";
+    private static final String USUARIO = "root";
+    private static final String PASSWORD = "";
+    private static Connection connection;
 
-    private static Connection conexion = null;  // lo que importa  
-
-    public Conexion(String url, String usr, String pass) {
-        this.url = "jdbc:mariabd://localhost/universidad";
-        usuario = usr;
-        password = pass;
+    private Conexion() {
     }
 
-    public Connection buscarConexion() {
-        if (conexion == null) {  // si es la primera vez
+    public static Connection getConexion() {
+        if (connection == null) {
             try {
-                //cargamos las clases de mariadb que implementan JDBC
                 Class.forName("org.mariadb.jdbc.Driver");
-                conexion = DriverManager.getConnection(url, usuario, password);
-            } catch (SQLException | ClassNotFoundException ex) {  // si me olvide de importar la libreria // error al cargar los drivers
-                Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+                connection = DriverManager.getConnection(URL + DB, USUARIO, PASSWORD);
+                JOptionPane.showMessageDialog(null, "Conectado");
+               
+            } catch (ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, "Error al cargar los driver");
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos");
             }
         }
-        return conexion; // retorna la conexion establecida
+        return connection; // Devuelve la conexión incluso si no se estableció correctamente
     }
 }

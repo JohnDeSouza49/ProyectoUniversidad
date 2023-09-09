@@ -6,7 +6,8 @@
 package Entidades;
 
 public class Materia {
-    private int idMateria=-1;
+
+    private int idMateria = -1;
     private String nombre;
     private int anio;
     private boolean estado;
@@ -63,6 +64,5 @@ public class Materia {
     public String toString() {
         return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anio=" + anio + '}';
     }
-    
-    
+
 }

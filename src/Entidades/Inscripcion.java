@@ -1,11 +1,11 @@
-
 package Entidades;
 
 public class Inscripcion {
-private int idInscripto;
-private int nota; 
-private Alumno alumno;
-private Materia materia;
+
+    private int idInscripto;
+    private int nota;
+    private Alumno alumno;
+    private Materia materia;
 
     public Inscripcion(int idInscripto, int nota, Alumno alumno, Materia materia) {
         this.idInscripto = idInscripto;
@@ -55,15 +55,11 @@ private Materia materia;
         this.materia = materia;
     }
 
-    
-
-
     @Override
     public String toString() {
-        String insc = idInscripto + " "+ alumno.getApellido()+", "+alumno.getNombre()+", "+
-                materia.getNombre();
+        String insc = idInscripto + " " + alumno.getApellido() + ", " + alumno.getNombre() + ", "
+                + materia.getNombre();
         return insc;
-                }    
     }
-    
+}
 

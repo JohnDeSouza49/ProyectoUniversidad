@@ -8,7 +8,8 @@ package Entidades;
 import java.util.Date;
 
 public class Alumno {
-    private int idAlumno=-1;
+
+    private int idAlumno = -1;
     private int dni;
     private String apellido;
     private String nombre;
@@ -87,6 +88,5 @@ public class Alumno {
     public String toString() {
         return "Alumno{" + "idAlumno=" + idAlumno + ", dni=" + dni + ", apellido=" + apellido + ", nombre=" + nombre + '}';
     }
-    
-    
+
 }
