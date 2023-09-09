@@ -35,7 +35,7 @@ public class Conexion {
             } catch (ClassNotFoundException ex) {
                 JOptionPane.showMessageDialog(null, "Error al cargar los driver");
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos");
+                JOptionPane.showMessageDialog(null, "Error al conectarse a la base de datos" + ex.getMessage());
             }
         }
         return connection; // Devuelve la conexión incluso si no se estableció correctamente
