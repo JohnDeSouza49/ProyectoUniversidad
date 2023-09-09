@@ -5,6 +5,7 @@
  */
 package Entidades;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Alumno {
@@ -13,14 +14,14 @@ public class Alumno {
     private int dni;
     private String apellido;
     private String nombre;
-    private Date fechaNac;
+    private Date fechaNacimiento;
     private boolean estado;
 
     public Alumno(int dni, String apellido, String nombre, Date fechaNac, boolean estado) {
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
-        this.fechaNac = fechaNac;
+        this.fechaNacimiento = fechaNac;
         this.estado = estado;
     }
 
@@ -29,7 +30,7 @@ public class Alumno {
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
-        this.fechaNac = fechaNac;
+        this.fechaNacimiento = fechaNac;
         this.estado = estado;
     }
 
@@ -69,11 +70,11 @@ public class Alumno {
     }
 
     public Date getFechaNac() {
-        return fechaNac;
+        return fechaNacimiento;
     }
 
-    public void setFechaNac(Date fechaNac) {
-        this.fechaNac = fechaNac;
+    public void setFechaNac(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public boolean isEstado() {
@@ -87,6 +88,14 @@ public class Alumno {
     @Override
     public String toString() {
         return "Alumno{" + "idAlumno=" + idAlumno + ", dni=" + dni + ", apellido=" + apellido + ", nombre=" + nombre + '}';
+    }
+
+    public void setFechaNacimiento(LocalDate toLocalDate) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getFechaNacimiento() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

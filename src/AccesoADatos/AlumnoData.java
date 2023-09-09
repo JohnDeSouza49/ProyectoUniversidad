@@ -37,7 +37,7 @@ PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS
 ps.setInt(1, alumno.getDni());
 ps.setString(2, alumno.getApellido());
 ps.setString(3, alumno.getNombre());
-ps.setDate(4, Date.valueOf(alumno.getFechaNac()));//localDate a Date
+ps.setDate(4, Date.valueOf(alumno.getFechaNacimiento()));//localDate a Date
 ps.setBoolean(5, alumno.isEstado()); // if reducido
 ps.executeUpdate();
 ResultSet rs = ps.getGeneratedKeys();
@@ -67,7 +67,7 @@ alumno.setIdAlumno(id);
 alumno.setDni(rs.getInt("dni"));
 alumno.setApellido(rs.getString("apellido"));
 alumno.setNombre(rs.getString("nombre"));
-alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
 alumno.setEstado(true); 
 
 } else {
@@ -97,7 +97,7 @@ alumno.setIdAlumno(rs.getInt("idAlumno"));
 alumno.setDni(rs.getInt("dni"));
 alumno.setApellido(rs.getString("apellido"));
 alumno.setNombre(rs.getString("nombre"));
-alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
 alumno.setEstado(true);
 
 } else {
@@ -126,7 +126,7 @@ alumno.setIdAlumno(rs.getInt("idAlumno"));
 alumno.setDni(rs.getInt("dni"));
 alumno.setApellido(rs.getString("apellido"));
 alumno.setNombre(rs.getString("nombre"));
-alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
 alumno.setEstado(rs.getBoolean("estado"));
 alumnos.add(alumno);
 }
@@ -148,7 +148,7 @@ ps = con.prepareStatement(sql);
 ps.setInt(1, alumno.getDni());
 ps.setString(2, alumno.getApellido());
 ps.setString(3, alumno.getNombre());
-ps.setDate(4, Date.valueOf(alumno.getFechaNac()));
+ps.setDate(4, Date.valueOf(alumno.getFechaNacimiento()));
 ps.setInt(5, alumno.getIdAlumno());
 int exito = ps.executeUpdate(); 
 
