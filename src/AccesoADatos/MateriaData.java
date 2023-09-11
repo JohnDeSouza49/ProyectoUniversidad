@@ -34,10 +34,30 @@ public void guardarMateria(Materia materia){
         ps.close();
     } catch (SQLException ex) {
         JOptionPane.showMessageDialog(null, "Error al agregar Materia");
+    }    
     }
-    
-        
+public void buscarMateria(int id){
+    String query="SELECT * form materia WHERE id=?";
+    Materia m= null;
+    try {
+        PreparedStatement ps= conex.prepareStatement(query);
+        ps.setInt(1, id);
+        ResultSet rs= ps.executeQuery();
+        if(rs.next()){
+            m= new Materia();
+            m.setIdMateria(rs.getInt("idMateria"));
+            m.setNombre(rs.getString("nombre"));
+            m.setAnio(rs.getInt("año"));
+            m.setEstado(rs.getBoolean("estado"));
+        }else{
+            JOptionPane.showMessageDialog(null, "error al encontrar materia con ese id");
+        }
+        ps.close();
+    } catch (SQLException ex) {
+        Logger.getLogger(MateriaData.class.getName()).log(Level.SEVERE, null, ex);
     }
+}
+
 }
 
 
