@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -56,6 +58,30 @@ public void buscarMateria(int id){
     } catch (SQLException ex) {
         Logger.getLogger(MateriaData.class.getName()).log(Level.SEVERE, null, ex);
     }
+}
+
+public List<Materia> listaMaterias(){
+    List<Materia> materias= new ArrayList<>();
+    Materia m=null;
+    String sql="SELECT * from materia WHERE estado=1";
+    try {
+        PreparedStatement ps= conex.prepareStatement(sql);
+        ResultSet rs= ps.executeQuery();
+        while(rs.next()){
+            m= new Materia();
+            m.setIdMateria(rs.getInt("idMateria"));
+            m.setNombre(rs.getString("nombre"));
+            m.setAnio(rs.getInt("año"));
+            m.setEstado(rs.getBoolean("estado"));
+            materias.add(m);
+            ps.close();
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(MateriaData.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+    return materias;
+    
 }
 
 }
