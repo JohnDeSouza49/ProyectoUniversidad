@@ -28,7 +28,7 @@ public void guardarMateria(Materia materia){
         ps.executeUpdate();
         ResultSet id= ps.getGeneratedKeys();
         if(id.next()){
-         materia.setIdMateria(id.getInt("idMateria"));
+         materia.setIdMateria(id.getInt(1));
             System.out.println("Materia agregada con exito");
         }
         ps.close();
