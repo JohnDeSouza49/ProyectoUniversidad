@@ -1,14 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package AccesoADatos;
 
-/**
- *
- * @author Kanji
- */
+import Entidades.Materia;
+import java.sql.Connection;
+
 public class MateriaData {
-    
+private Connection conex= null;
+
+public MateriaData(){
+ conex= Conexion.getConexion();
+}
+
+public void guardarMateria(Materia materia){
+    String sql="INSERT INTO materia (nombre,año, estado) VALUES (?, ?, ?)";
+}
+
+
 }
