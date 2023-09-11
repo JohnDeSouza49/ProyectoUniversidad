@@ -14,23 +14,23 @@ public class Alumno {
     private int dni;
     private String apellido;
     private String nombre;
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
     private boolean estado;
 
-    public Alumno(int dni, String apellido, String nombre, Date fechaNac, boolean estado) {
+    public Alumno(int dni, String apellido, String nombre, LocalDate fechaNacimiento, boolean estado) {
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
-        this.fechaNacimiento = fechaNac;
+        this.fechaNacimiento = fechaNacimiento;
         this.estado = estado;
     }
 
-    public Alumno(int idAlumno, int dni, String apellido, String nombre, Date fechaNac, boolean estado) {
+    public Alumno(int idAlumno, int dni, String apellido, String nombre, LocalDate fechaNacimiento, boolean estado) {
         this.idAlumno = -1;
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
-        this.fechaNacimiento = fechaNac;
+        this.fechaNacimiento = fechaNacimiento;
         this.estado = estado;
     }
 
@@ -69,11 +69,11 @@ public class Alumno {
         this.nombre = nombre;
     }
 
-    public Date getFechaNac() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNac(Date fechaNacimiento) {
+    public void setFechaNacimiento (LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -90,12 +90,8 @@ public class Alumno {
         return "Alumno{" + "idAlumno=" + idAlumno + ", dni=" + dni + ", apellido=" + apellido + ", nombre=" + nombre + '}';
     }
 
-    public void setFechaNacimiento(LocalDate toLocalDate) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
-    public String getFechaNacimiento() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
 }
