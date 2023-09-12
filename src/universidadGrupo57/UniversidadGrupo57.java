@@ -26,7 +26,19 @@ public class UniversidadGrupo57 {
         MateriaData materia = new MateriaData();
         materia.guardarMateria(uno);
 
+<<<<<<< Updated upstream
        System.out.println(materia.listarMaterias());
+=======
+     //Connection con = Conexion.getConexion();  // TODO code application logic here
+    //Alumno juan=new Alumno (45866683,"Martinez","pedro",LocalDate.of(1980,4,25),true);
+    //AlumnoData alu=new AlumnoData();
+    //alu.listarAlumnos();
+   // alu.guardarAlumno(juan);
+    //Materia uno= new Materia("Matematica",2, true);
+    //MateriaData materia= new MateriaData();
+       // System.out.println(materia.listarMaterias());
+
+>>>>>>> Stashed changes
         //Connection con = Conexion.getConexion();  // TODO code application logic here
         Alumno juan = new Alumno(12312366, "luna", "pedro", LocalDate.of(1980, 4, 25), true);
         AlumnoData alu = new AlumnoData();
