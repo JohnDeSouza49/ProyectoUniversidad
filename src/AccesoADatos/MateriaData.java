@@ -21,6 +21,22 @@ public class MateriaData {
         conex = Conexion.getConexion();
     }
 
+
+public List<Materia> listaMaterias(){
+    List<Materia> materias= new ArrayList<>();
+    Materia m=null;
+    String sql="SELECT * FROM materia WHERE estado=true";
+    try {
+        PreparedStatement ps= conex.prepareStatement(sql);
+        ResultSet rs= ps.executeQuery();
+        while(rs.next()){
+            m= new Materia();
+            m.setIdMateria(rs.getInt("id_materia"));
+            m.setNombre(rs.getString("nombre"));
+            m.setAnio(rs.getInt("año"));
+            m.setEstado(rs.getBoolean("estado"));
+            materias.add(m);
+
     public void guardarMateria(Materia materia) {
         String sql = "INSERT INTO materia (nombre,año, estado) VALUES (?, ?, ?)";
         try {
@@ -34,6 +50,7 @@ public class MateriaData {
                 materia.setIdMateria(id.getInt(1));
                 System.out.println("Materia agregada con exito");
             }
+
             ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al agregar Materia");
@@ -86,4 +103,5 @@ public class MateriaData {
 
     }
 
+}
 }
