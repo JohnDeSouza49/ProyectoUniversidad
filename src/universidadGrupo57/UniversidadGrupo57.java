@@ -25,7 +25,7 @@ public class UniversidadGrupo57 {
     //alu.listarAlumnos();
    // alu.guardarAlumno(juan);
     //Materia uno= new Materia("Matematica",2, true);
-    MateriaData materia= new MateriaData();
+    //MateriaData materia= new MateriaData();
        // System.out.println(materia.listarMaterias());
 
         //Connection con = Conexion.getConexion();  // TODO code application logic here
