@@ -78,7 +78,7 @@ public class MateriaData {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 m = new Materia();
-                m.setIdMateria(rs.getInt("id_materia"));
+                m.setIdMateria(rs.getInt("idMateria"));
                 m.setNombre(rs.getString("nombre"));
                 m.setAnio(rs.getInt("año"));
                 m.setEstado(rs.getBoolean("estado"));
