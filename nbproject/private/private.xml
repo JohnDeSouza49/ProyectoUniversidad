@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lucas/OneDrive/Documentos/GitHub/ProyectoUniversidad/src/Vistas/UniversidadGrupo57.java</file>
-            <file>file:/C:/Users/lucas/OneDrive/Documentos/GitHub/ProyectoUniversidad/src/AccesoADatos/AlumnoData.java</file>
-            <file>file:/C:/Users/lucas/OneDrive/Documentos/GitHub/ProyectoUniversidad/src/AccesoADatos/MateriaData.java</file>
-            <file>file:/C:/Users/lucas/OneDrive/Documentos/GitHub/ProyectoUniversidad/src/universidadGrupo57/UniversidadGrupo57.java</file>
-            <file>file:/C:/Users/lucas/OneDrive/Documentos/GitHub/ProyectoUniversidad/src/AccesoADatos/InscripcionData.java</file>
+            <file>file:/C:/Users/GAMER/Documents/NetBeansProjects/JazminPrueba/ProyectoUniversidad/src/AccesoADatos/MateriaData.java</file>
+            <file>file:/C:/Users/GAMER/Documents/NetBeansProjects/JazminPrueba/ProyectoUniversidad/src/AccesoADatos/Conexion.java</file>
+            <file>file:/C:/Users/GAMER/Documents/NetBeansProjects/JazminPrueba/ProyectoUniversidad/src/universidadGrupo57/UniversidadGrupo57.java</file>
+            <file>file:/C:/Users/GAMER/Documents/NetBeansProjects/JazminPrueba/ProyectoUniversidad/src/Entidades/Alumno.java</file>
+            <file>file:/C:/Users/GAMER/Documents/NetBeansProjects/JazminPrueba/ProyectoUniversidad/src/Entidades/Materia.java</file>
+            <file>file:/C:/Users/GAMER/Documents/NetBeansProjects/JazminPrueba/ProyectoUniversidad/src/AccesoADatos/AlumnoData.java</file>
         </group>
     </open-files>
 </project-private>

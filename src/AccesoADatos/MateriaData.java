@@ -79,7 +79,7 @@ public List<Materia> listaMaterias(){
         }
     }
 
-    public List<Materia> listaMaterias() {
+    public List<Materia> listarMaterias(){
         List<Materia> materias = new ArrayList<>();
         Materia m = null;
         String sql = "SELECT * FROM materia WHERE estado=1";
