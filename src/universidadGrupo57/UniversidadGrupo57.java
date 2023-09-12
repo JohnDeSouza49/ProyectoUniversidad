@@ -9,18 +9,33 @@ import java.time.LocalDate;
 
 import AccesoADatos.AlumnoData;
 import AccesoADatos.Conexion;
+import AccesoADatos.MateriaData;
 import Entidades.Alumno;
+import Entidades.Materia;
 import java.sql.Connection;
 
 public class UniversidadGrupo57 {
 
     public static void main(String[] args) {
 
+
+     //Connection con = Conexion.getConexion();  // TODO code application logic here
+    //Alumno juan=new Alumno (45866683,"Martinez","pedro",LocalDate.of(1980,4,25),true);
+    //AlumnoData alu=new AlumnoData();
+    //alu.listarAlumnos();
+   // alu.guardarAlumno(juan);
+    //Materia uno= new Materia("Matematica",2, true);
+    MateriaData materia= new MateriaData();
+        System.out.println(materia.listaMaterias());
+
         //Connection con = Conexion.getConexion();  // TODO code application logic here
         Alumno juan = new Alumno(12312366, "luna", "pedro", LocalDate.of(1980, 4, 25), true);
         AlumnoData alu = new AlumnoData();
         alu.guardarAlumno(juan);
+        
 
-    }
 
+    
+
+}
 }
