@@ -14,10 +14,12 @@ import java.sql.Connection;
 public class UniversidadGrupo57 {
 
     public static void main(String[] args) {
+
      //Connection con = Conexion.getConexion();  // TODO code application logic here
     Alumno juan=new Alumno (12312366,"luna","pedro",LocalDate.of(1980,4,25),true);
     AlumnoData alu=new AlumnoData();
     alu.guardarAlumno(juan);
+
     }
   
     
