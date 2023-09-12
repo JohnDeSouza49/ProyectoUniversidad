@@ -10,7 +10,7 @@ import java.util.Date;
 
 public class Alumno {
 
-    private int idAlumno = -1;
+    private int idAlumno;
     private int dni;
     private String apellido;
     private String nombre;
@@ -26,7 +26,7 @@ public class Alumno {
     }
 
     public Alumno(int idAlumno, int dni, String apellido, String nombre, Date fechaNac, boolean estado) {
-        this.idAlumno = -1;
+        this.idAlumno = idAlumno;
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
