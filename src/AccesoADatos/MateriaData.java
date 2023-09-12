@@ -63,13 +63,13 @@ public void buscarMateria(int id){
 public List<Materia> listaMaterias(){
     List<Materia> materias= new ArrayList<>();
     Materia m=null;
-    String sql="SELECT * FROM materia WHERE estado=1";
+    String sql="SELECT * FROM materia WHERE estado=true";
     try {
         PreparedStatement ps= conex.prepareStatement(sql);
         ResultSet rs= ps.executeQuery();
         while(rs.next()){
             m= new Materia();
-            m.setIdMateria(rs.getInt("idMateria"));
+            m.setIdMateria(rs.getInt("id_materia"));
             m.setNombre(rs.getString("nombre"));
             m.setAnio(rs.getInt("año"));
             m.setEstado(rs.getBoolean("estado"));
