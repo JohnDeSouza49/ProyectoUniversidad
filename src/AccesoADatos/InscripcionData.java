@@ -23,44 +23,43 @@ public class InscripcionData {
     public List<Inscripcion> obtenerInscripciones() {
 
         List<Inscripcion> inscripciones = new ArrayList<>();
-        
+
         return inscripciones;
     }
-    
+
     public List<Inscripcion> obtenerInscripcionesPorAlumno(int id) {
 
         List<Inscripcion> inscPorId = new ArrayList<>();
-        
+
         return inscPorId;
     }
-    
-    public List<Materia> obtenerMateriasCursadas(int id){
-        
-        List <Materia> materiasCursadas = new ArrayList<>();
-        
+
+    public List<Materia> obtenerMateriasCursadas(int id) {
+
+        List<Materia> materiasCursadas = new ArrayList<>();
+
         return materiasCursadas;
     }
-    
-    public List<Materia> obtenerMateriasNoCursadas(int id){
-        
-        List <Materia> materiasNoCursadas = new ArrayList<>();
-        
+
+    public List<Materia> obtenerMateriasNoCursadas(int id) {
+
+        List<Materia> materiasNoCursadas = new ArrayList<>();
+
         return materiasNoCursadas;
-    } 
-    
-     public void borrarInscripcionMaterialAlumno(int idAlumno, int idMateria){
-            
-      
     }
-     
-     public void actualizarNota(int idAlumno, int idMateria, double nota){
-         
-     }
-     
-      public List<Alumno> obtenerAlumnosXMateria(int idMateria){
-        
-        List <Alumno> materiasXAlumno = new ArrayList<>();
-        
+
+    public void borrarInscripcionMaterialAlumno(int idAlumno, int idMateria) {
+
+    }
+
+    public void actualizarNota(int idAlumno, int idMateria, double nota) {
+
+    }
+
+    public List<Alumno> obtenerAlumnosXMateria(int idMateria) {
+
+        List<Alumno> materiasXAlumno = new ArrayList<>();
+
         return materiasXAlumno;
     }
 
