@@ -26,7 +26,7 @@ public class UniversidadGrupo57 {
    // alu.guardarAlumno(juan);
     //Materia uno= new Materia("Matematica",2, true);
     MateriaData materia= new MateriaData();
-        System.out.println(materia.listarMaterias());
+       // System.out.println(materia.listarMaterias());
 
         //Connection con = Conexion.getConexion();  // TODO code application logic here
         Alumno juan = new Alumno(12312366, "luna", "pedro", LocalDate.of(1980, 4, 25), true);
