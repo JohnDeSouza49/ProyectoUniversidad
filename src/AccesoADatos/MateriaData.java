@@ -47,8 +47,8 @@ public class MateriaData {
         }
     }
 
-    public void buscarMateria(int id) {
-        String query = "SELECT * form materia WHERE id=?";
+    public Materia buscarMateria(int id) {
+        String query = "SELECT * from materia WHERE id_materia=?";
         Materia m = null;
         try {
             PreparedStatement ps = conex.prepareStatement(query);
@@ -67,6 +67,7 @@ public class MateriaData {
         } catch (SQLException ex) {
             Logger.getLogger(MateriaData.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return m;
     }
 
    public List<Materia> listaMaterias() {
