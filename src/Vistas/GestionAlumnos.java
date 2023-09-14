@@ -45,6 +45,8 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         jButton5 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
+        setTitle("Alumno");
+
         jLabel1.setText("ALUMNO");
 
         jLabel2.setText("DNI :");
