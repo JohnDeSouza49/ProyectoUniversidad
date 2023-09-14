@@ -122,6 +122,11 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         mbAdministracion.setText("Administración");
 
         MiMenuInscripciones.setText("Manejo de Inscripciones");
+        MiMenuInscripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MiMenuInscripcionesActionPerformed(evt);
+            }
+        });
         mbAdministracion.add(MiMenuInscripciones);
 
         miNotas.setText("Manipulación de notas");
@@ -147,6 +152,11 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         jMenuBar1.add(mbConsultas);
 
         mbSalir.setText("Salir");
+        mbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mbSalirActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(mbSalir);
 
         setJMenuBar(jMenuBar1);
@@ -170,25 +180,25 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
 
     private void miFormularioAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFormularioAlumnoActionPerformed
         // TODO add your handling code here:
-         jDEscritorio.removeAll();
+        jDEscritorio.removeAll();
         jDEscritorio.repaint();
-        GestionAlumnos gp= new GestionAlumnos();
+        GestionAlumnos gp = new GestionAlumnos();
         gp.setVisible(true);
         jDEscritorio.add(gp);
         jDEscritorio.moveToFront(gp);
-       
+
     }//GEN-LAST:event_miFormularioAlumnoActionPerformed
 
     private void mbAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mbAlumnoActionPerformed
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_mbAlumnoActionPerformed
 
     private void miNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNotasActionPerformed
         // TODO add your handling code here:
         jDEscritorio.removeAll();
         jDEscritorio.repaint();
-        ActualizacionDeNotas an= new ActualizacionDeNotas();
+        ActualizacionDeNotas an = new ActualizacionDeNotas();
         an.setVisible(true);
         jDEscritorio.add(an);
         jDEscritorio.moveToFront(an);
@@ -196,22 +206,35 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
 
     private void miAlumnosPorMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAlumnosPorMateriaActionPerformed
         // TODO add your handling JDestokPane: escritorio
-     jDEscritorio.removeAll();
+        jDEscritorio.removeAll();
         jDEscritorio.repaint();
-         ConsultaAlumnoPorMateria an= new ConsultaAlumnoPorMateria();
+        ConsultaAlumnoPorMateria an = new ConsultaAlumnoPorMateria();
         an.setVisible(true);
         jDEscritorio.add(an);
         jDEscritorio.moveToFront(an);
     }//GEN-LAST:event_miAlumnosPorMateriaActionPerformed
 
     private void miFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFormularioMateriaActionPerformed
-          jDEscritorio.removeAll();
+        jDEscritorio.removeAll();
         jDEscritorio.repaint();
-         GestionMaterias an= new GestionMaterias();
+        GestionMaterias an = new GestionMaterias();
         an.setVisible(true);
         jDEscritorio.add(an);
         jDEscritorio.moveToFront(an);
     }//GEN-LAST:event_miFormularioMateriaActionPerformed
+
+    private void MiMenuInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MiMenuInscripcionesActionPerformed
+        jDEscritorio.removeAll();
+        jDEscritorio.repaint();
+        Inscripciones mi = new Inscripciones();
+        mi.setVisible(true);
+        jDEscritorio.add(mi);
+        jDEscritorio.moveToFront(mi); // TODO add your handling code here:
+    }//GEN-LAST:event_MiMenuInscripcionesActionPerformed
+
+    private void mbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mbSalirActionPerformed
+    System.exit(0); 
+    }//GEN-LAST:event_mbSalirActionPerformed
 
     /**
      * @param args the command line arguments
