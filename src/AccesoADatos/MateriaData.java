@@ -109,6 +109,26 @@ public class MateriaData {
         }
         
    }
+public void modificarMateria(Materia mat) {
 
+        String sql = "UPDATE materia SET nombre = ?, año = ? WHERE id_materia = ?";
+        PreparedStatement ps = null;
+
+        try {
+            ps = conex.prepareStatement(sql);
+            ps.setString(1, mat.getNombre());
+            ps.setInt(2, mat.getAnio());
+           ps.setInt(3, mat.getIdMateria());
+            int exito = ps.executeUpdate();
+
+            if (exito == 1) {
+                JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
+            } else {
+                JOptionPane.showMessageDialog(null, "La materia no existe");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno " + ex.getMessage());
+        }
+    }
 }
 
