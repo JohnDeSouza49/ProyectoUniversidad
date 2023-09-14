@@ -110,11 +110,6 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         mbMateria.setText("Materia");
 
         miFormularioMateria.setText("Formulario de Materia");
-        miFormularioMateria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miFormularioMateriaActionPerformed(evt);
-            }
-        });
         mbMateria.add(miFormularioMateria);
 
         jMenuBar1.add(mbMateria);
@@ -125,6 +120,11 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         mbAdministracion.add(MiMenuInscripciones);
 
         miNotas.setText("Manipulación de notas");
+        miNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miNotasActionPerformed(evt);
+            }
+        });
         mbAdministracion.add(miNotas);
 
         jMenuBar1.add(mbAdministracion);
@@ -174,6 +174,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
        
     }//GEN-LAST:event_mbAlumnoActionPerformed
 
+
     private void miFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFormularioMateriaActionPerformed
        
          jDEscritorio.removeAll();
@@ -184,6 +185,17 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         jDEscritorio.moveToFront(gp);
         
     }//GEN-LAST:event_miFormularioMateriaActionPerformed
+
+    private void miNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNotasActionPerformed
+        // TODO add your handling code here:
+        jDEscritorio.removeAll();
+        jDEscritorio.repaint();
+        ActualizacionDeNotas an= new ActualizacionDeNotas();
+        an.setVisible(true);
+        jDEscritorio.add(an);
+        jDEscritorio.moveToFront(an);
+    }//GEN-LAST:event_miNotasActionPerformed
+
 
     /**
      * @param args the command line arguments
