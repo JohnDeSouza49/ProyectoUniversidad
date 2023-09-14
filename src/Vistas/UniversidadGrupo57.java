@@ -35,6 +35,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jDesktopPane1 = new javax.swing.JDesktopPane();
+        jDEscritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         mbAlumno = new javax.swing.JMenu();
         miFormularioAlumno = new javax.swing.JMenuItem();
@@ -63,18 +64,38 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        javax.swing.GroupLayout jDEscritorioLayout = new javax.swing.GroupLayout(jDEscritorio);
+        jDEscritorio.setLayout(jDEscritorioLayout);
+        jDEscritorioLayout.setHorizontalGroup(
+            jDEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 428, Short.MAX_VALUE)
+        );
+        jDEscritorioLayout.setVerticalGroup(
+            jDEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 273, Short.MAX_VALUE)
+        );
+
+        jDesktopPane1.setLayer(jDEscritorio, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 428, Short.MAX_VALUE)
+            .addComponent(jDEscritorio)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 265, Short.MAX_VALUE)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addComponent(jDEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         mbAlumno.setText("Alumno");
+        mbAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mbAlumnoActionPerformed(evt);
+            }
+        });
 
         miFormularioAlumno.setText("Formulario de Alumno");
         miFormularioAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +155,19 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
 
     private void miFormularioAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFormularioAlumnoActionPerformed
         // TODO add your handling code here:
+         jDEscritorio.removeAll();
+        jDEscritorio.repaint();
+        GestionAlumnos gp= new GestionAlumnos();
+        gp.setVisible(true);
+        jDEscritorio.add(gp);
+        jDEscritorio.moveToFront(gp);
+       
     }//GEN-LAST:event_miFormularioAlumnoActionPerformed
+
+    private void mbAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mbAlumnoActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_mbAlumnoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +206,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem MiMenuInscripciones;
+    private javax.swing.JDesktopPane jDEscritorio;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -193,3 +227,11 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
     private javax.swing.JMenuItem miNotas;
     // End of variables declaration//GEN-END:variables
 }
+/*JDestokPane: escritorio
+en el codigo
+escritorio.removeAll(;
+escritorio.repaint();
+GestionAlumnos gp= new GestionAlumnos();
+gp.setVisible(true);
+escritorio.add(gp);
+escritorio.moveToFront(gp)*/
