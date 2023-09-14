@@ -8,12 +8,12 @@ package Vistas;
  *
  * @author Ivan Martin
  */
-public class ConsultaAlunmoPorMateria extends javax.swing.JInternalFrame {
+public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ConsultaAlunmoPorMateria
      */
-    public ConsultaAlunmoPorMateria() {
+    public ConsultaAlumnoPorMateria() {
         initComponents();
     }
 

@@ -132,6 +132,11 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         mbConsultas.setText("Consultas");
 
         miAlumnosPorMateria.setText("Alumnos por Materia");
+        miAlumnosPorMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAlumnosPorMateriaActionPerformed(evt);
+            }
+        });
         mbConsultas.add(miAlumnosPorMateria);
 
         jMenuBar1.add(mbConsultas);
@@ -183,6 +188,16 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         jDEscritorio.add(an);
         jDEscritorio.moveToFront(an);
     }//GEN-LAST:event_miNotasActionPerformed
+
+    private void miAlumnosPorMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAlumnosPorMateriaActionPerformed
+        // TODO add your handling JDestokPane: escritorio
+     jDEscritorio.removeAll();
+        jDEscritorio.repaint();
+         ConsultaAlumnoPorMateria an= new ConsultaAlumnoPorMateria();
+        an.setVisible(true);
+        jDEscritorio.add(an);
+        jDEscritorio.moveToFront(an);
+    }//GEN-LAST:event_miAlumnosPorMateriaActionPerformed
 
     /**
      * @param args the command line arguments
