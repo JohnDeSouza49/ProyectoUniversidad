@@ -22,15 +22,15 @@ public class UniversidadGrupo57 {
         //AlumnoData alu=new AlumnoData();
         //alu.listarAlumnos();
         // alu.guardarAlumno(juan);
-        Materia uno = new Materia("Matematica", 2, true);
+        Materia uno = new Materia(6,"Literatura", 2, true);
         MateriaData materia = new MateriaData();
-        materia.guardarMateria(uno);
+       materia.modificarMateria(uno);
 
        //System.out.println(materia.listarMaterias());
         //Connection con = Conexion.getConexion();  // TODO code application logic here
-        Alumno juan = new Alumno(12312366, "luna", "pedro", LocalDate.of(1980, 4, 25), true);
-        AlumnoData alu = new AlumnoData();
-        alu.guardarAlumno(juan);
+       // Alumno juan = new Alumno(12312366, "luna", "pedro", LocalDate.of(1980, 4, 25), true);
+        //AlumnoData alu = new AlumnoData();
+        //alu.guardarAlumno(juan);
 
     }
 }

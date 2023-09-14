@@ -7,13 +7,13 @@ package Entidades;
 
 public class Materia {
 
-    private int idMateria = -1;
+    private int idMateria;
     private String nombre;
     private int anio;
     private boolean estado;
 
     public Materia(int idMateria, String nombre, int anio, boolean estado) {
-        this.idMateria = -1;
+        this.idMateria =idMateria;
         this.nombre = nombre;
         this.anio = anio;
         this.estado = estado;

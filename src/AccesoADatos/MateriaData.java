@@ -120,12 +120,13 @@ public void modificarMateria(Materia mat) {
             ps.setInt(2, mat.getAnio());
            ps.setInt(3, mat.getIdMateria());
             int exito = ps.executeUpdate();
-
-            if (exito == 1) {
-                JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
-            } else {
-                JOptionPane.showMessageDialog(null, "La materia no existe");
+            ps.close();
+           if (exito == 1) {
+              JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
+           } else {
+               JOptionPane.showMessageDialog(null, "La materia no existe");
             }
+           ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno " + ex.getMessage());
         }
