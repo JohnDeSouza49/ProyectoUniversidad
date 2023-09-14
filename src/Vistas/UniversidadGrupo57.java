@@ -110,6 +110,11 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         mbMateria.setText("Materia");
 
         miFormularioMateria.setText("Formulario de Materia");
+        miFormularioMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miFormularioMateriaActionPerformed(evt);
+            }
+        });
         mbMateria.add(miFormularioMateria);
 
         jMenuBar1.add(mbMateria);
@@ -198,6 +203,15 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         jDEscritorio.add(an);
         jDEscritorio.moveToFront(an);
     }//GEN-LAST:event_miAlumnosPorMateriaActionPerformed
+
+    private void miFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFormularioMateriaActionPerformed
+          jDEscritorio.removeAll();
+        jDEscritorio.repaint();
+         GestionMaterias an= new GestionMaterias();
+        an.setVisible(true);
+        jDEscritorio.add(an);
+        jDEscritorio.moveToFront(an);
+    }//GEN-LAST:event_miFormularioMateriaActionPerformed
 
     /**
      * @param args the command line arguments
