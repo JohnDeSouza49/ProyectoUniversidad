@@ -8,12 +8,12 @@ package Vistas;
  *
  * @author Ivan Martin
  */
-public class ConsultaAlunmoPorMateria extends javax.swing.JInternalFrame {
+public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ConsultaAlunmoPorMateria
      */
-    public ConsultaAlunmoPorMateria() {
+    public ConsultaAlumnoPorMateria() {
         initComponents();
     }
 
@@ -59,7 +59,7 @@ public class ConsultaAlunmoPorMateria extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
