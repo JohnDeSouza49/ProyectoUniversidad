@@ -93,6 +93,22 @@ public class MateriaData {
         return materias;
 
     }
+   public void eliminarMateria(int id){
+        String sql="UPDATE materia SET estado=0 WHERE id_materia=?";
+        try {
+            PreparedStatement ps= conex.prepareStatement(sql);  
+            ps.setInt(1, id);
+
+            int fila= ps.executeUpdate();
+            if(fila==1){
+                JOptionPane.showMessageDialog(null, "Se elimino materia con id: "+id);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "No se encontro la tabla materia..");
+        }
+        
+   }
 
 }
 
