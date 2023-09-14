@@ -111,14 +111,15 @@ public class MateriaData {
    }
 public void modificarMateria(Materia mat) {
 
-        String sql = "UPDATE materia SET nombre = ?, año = ? WHERE id_materia = ?";
+        String sql = "UPDATE materia SET nombre = ?, año = ?, estado=? WHERE id_materia = ?";
         PreparedStatement ps = null;
 
         try {
             ps = conex.prepareStatement(sql);
             ps.setString(1, mat.getNombre());
             ps.setInt(2, mat.getAnio());
-           ps.setInt(3, mat.getIdMateria());
+            ps.setBoolean(3, mat.isEstado());
+           ps.setInt(4, mat.getIdMateria());
             int exito = ps.executeUpdate();
             ps.close();
            if (exito == 1) {
