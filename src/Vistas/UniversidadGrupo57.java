@@ -179,7 +179,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
        
     }//GEN-LAST:event_mbAlumnoActionPerformed
 
-<<<<<<< HEAD
+
     private void miAlumnosPorMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAlumnosPorMateriaActionPerformed
         // TODO add your handling code here:
          jDEscritorio.removeAll();
@@ -189,7 +189,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         jDEscritorio.add(camp);
         jDEscritorio.moveToFront(camp);
     }//GEN-LAST:event_miAlumnosPorMateriaActionPerformed
-=======
+
     private void miFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFormularioMateriaActionPerformed
        
          jDEscritorio.removeAll();
@@ -200,7 +200,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         jDEscritorio.moveToFront(gp);
         
     }//GEN-LAST:event_miFormularioMateriaActionPerformed
->>>>>>> a7e14f6081228088570b77c0129c04d0364b1d2a
+
 
     /**
      * @param args the command line arguments
