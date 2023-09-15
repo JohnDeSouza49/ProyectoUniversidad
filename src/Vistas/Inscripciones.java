@@ -4,17 +4,18 @@
  */
 package Vistas;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Ivan Martin
  */
 public class Inscripciones extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Inscripciones
-     */
+    private DefaultTableModel modelo = new DefaultTableModel();
     public Inscripciones() {
         initComponents();
+        armarEncabezado();
     }
 
     /**
@@ -34,7 +35,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         jRBMateriasInscripto = new javax.swing.JRadioButton();
         jRBMateriasNoInscripto = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTMaterias = new javax.swing.JTable();
         jBInscribir = new javax.swing.JButton();
         jBAnularMateria = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
@@ -57,7 +58,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
 
         jRBMateriasNoInscripto.setText("Materias no inscriptas");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -68,7 +69,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTMaterias);
 
         jBInscribir.setText("Inscribir");
 
@@ -165,6 +166,12 @@ public class Inscripciones extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRBMateriasNoInscripto;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTMaterias;
     // End of variables declaration//GEN-END:variables
+private void armarEncabezado(){
+    modelo.addColumn("ID MATERIA");
+    modelo.addColumn("NOMBRE DE MATERIA");
+    modelo.addColumn("AÑO");
+    jTMaterias.setModel(modelo);
+}
 }
