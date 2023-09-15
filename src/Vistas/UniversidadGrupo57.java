@@ -5,6 +5,8 @@
  */
 package Vistas;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Kanji
@@ -27,13 +29,6 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuBar3 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jDEscritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -48,20 +43,6 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         miAlumnosPorMateria = new javax.swing.JMenuItem();
         mbSalir = new javax.swing.JMenu();
         MISalirDeLaVentana = new javax.swing.JMenuItem();
-
-        jMenu4.setText("File");
-        jMenuBar2.add(jMenu4);
-
-        jMenu5.setText("Edit");
-        jMenuBar2.add(jMenu5);
-
-        jMenuItem3.setText("jMenuItem3");
-
-        jMenu1.setText("File");
-        jMenuBar3.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar3.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,11 +73,6 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         );
 
         mbAlumno.setText("Alumno");
-        mbAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mbAlumnoActionPerformed(evt);
-            }
-        });
 
         miFormularioAlumno.setText("Formulario de Alumno");
         miFormularioAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -199,11 +175,6 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_miFormularioAlumnoActionPerformed
 
-    private void mbAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mbAlumnoActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_mbAlumnoActionPerformed
-
     private void miNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNotasActionPerformed
         // TODO add your handling code here:
         jDEscritorio.removeAll();
@@ -243,7 +214,13 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
     }//GEN-LAST:event_MiMenuInscripcionesActionPerformed
 
     private void mbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mbSalirActionPerformed
-    System.exit(0); 
+    
+    //this.dispose(); 
+    //System.exit(0);
+    //Runtime.getRuntime().exit(0);
+   //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    //dispose();
+    //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }//GEN-LAST:event_mbSalirActionPerformed
 
     private void MISalirDeLaVentanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MISalirDeLaVentanaActionPerformed
@@ -294,14 +271,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
     private javax.swing.JMenuItem MiMenuInscripciones;
     private javax.swing.JDesktopPane jDEscritorio;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenu mbAdministracion;
     private javax.swing.JMenu mbAlumno;
     private javax.swing.JMenu mbConsultas;
