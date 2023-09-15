@@ -47,6 +47,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         mbConsultas = new javax.swing.JMenu();
         miAlumnosPorMateria = new javax.swing.JMenuItem();
         mbSalir = new javax.swing.JMenu();
+        MISalirDeLaVentana = new javax.swing.JMenuItem();
 
         jMenu4.setText("File");
         jMenuBar2.add(jMenu4);
@@ -157,6 +158,15 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
                 mbSalirActionPerformed(evt);
             }
         });
+
+        MISalirDeLaVentana.setText("Salir del buscador");
+        MISalirDeLaVentana.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MISalirDeLaVentanaActionPerformed(evt);
+            }
+        });
+        mbSalir.add(MISalirDeLaVentana);
+
         jMenuBar1.add(mbSalir);
 
         setJMenuBar(jMenuBar1);
@@ -236,6 +246,14 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
     System.exit(0); 
     }//GEN-LAST:event_mbSalirActionPerformed
 
+    private void MISalirDeLaVentanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MISalirDeLaVentanaActionPerformed
+        // TODO add your handling code here:
+                                              
+        this.dispose(); // Esto cierra la ventana actual
+
+
+    }//GEN-LAST:event_MISalirDeLaVentanaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -272,6 +290,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MISalirDeLaVentana;
     private javax.swing.JMenuItem MiMenuInscripciones;
     private javax.swing.JDesktopPane jDEscritorio;
     private javax.swing.JDesktopPane jDesktopPane1;
