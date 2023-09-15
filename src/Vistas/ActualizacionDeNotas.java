@@ -4,6 +4,10 @@
  */
 package Vistas;
 
+import AccesoADatos.AlumnoData;
+import AccesoADatos.InscripcionData;
+import Entidades.Alumno;
+
 /**
  *
  * @author Ivan Martin
@@ -41,6 +45,12 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
 
         jLabel2.setText("CARGA DE NOTAS");
 
+        jCBAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBAlumnoActionPerformed(evt);
+            }
+        });
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -55,6 +65,11 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jBGuardarNota.setText("Guardar");
+        jBGuardarNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarNotaActionPerformed(evt);
+            }
+        });
 
         jBSalirdeNotas.setText("Salir");
 
@@ -109,6 +124,21 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCBAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBAlumnoActionPerformed
+         // Crear una instancia de AlumnoData
+        AlumnoData Lista = new AlumnoData();
+        // Llamar al método de AlumnoData
+        Lista.listarAlumnos();
+        
+    }//GEN-LAST:event_jCBAlumnoActionPerformed
+
+    private void jBGuardarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarNotaActionPerformed
+       // Crear una instancia de InscripcionData
+        InscripcionData nota2= new InscripcionData();
+         // Llamar al método de InscripcionData        
+        //nota2.actualizarNota();
+    }//GEN-LAST:event_jBGuardarNotaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

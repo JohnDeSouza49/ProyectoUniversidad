@@ -63,4 +63,5 @@ public class InscripcionData {
         return materiasXAlumno;
     }
 
+   
 }
