@@ -169,8 +169,8 @@ public class Inscripciones extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTMaterias;
     // End of variables declaration//GEN-END:variables
 private void armarEncabezado(){
-    modelo.addColumn("ID MATERIA");
-    modelo.addColumn("NOMBRE DE MATERIA");
+    modelo.addColumn("CODIGO");
+    modelo.addColumn("NOMBRE");
     modelo.addColumn("AÑO");
     jTMaterias.setModel(modelo);
 }
