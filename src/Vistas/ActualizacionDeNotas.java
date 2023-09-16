@@ -35,7 +35,7 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jCBAlumno = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTNotaMateria = new javax.swing.JTable();
         jBGuardarNota = new javax.swing.JButton();
         jBSalirdeNotas = new javax.swing.JButton();
 
@@ -51,7 +51,7 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTNotaMateria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -62,7 +62,7 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTNotaMateria);
 
         jBGuardarNota.setText("Guardar");
         jBGuardarNota.addActionListener(new java.awt.event.ActionListener() {
@@ -72,6 +72,11 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
         });
 
         jBSalirdeNotas.setText("Salir");
+        jBSalirdeNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirdeNotasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,6 +145,11 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
         //nota2.actualizarNota();
     }//GEN-LAST:event_jBGuardarNotaActionPerformed
 
+    private void jBSalirdeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirdeNotasActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jBSalirdeNotasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBGuardarNota;
@@ -149,6 +159,6 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTNotaMateria;
     // End of variables declaration//GEN-END:variables
 }
