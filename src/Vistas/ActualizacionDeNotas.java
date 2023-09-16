@@ -7,18 +7,15 @@ package Vistas;
 import AccesoADatos.AlumnoData;
 import AccesoADatos.InscripcionData;
 import Entidades.Alumno;
+import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Ivan Martin
- */
+
 public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ActualizacionDeNotas
-     */
+    private  DefaultTableModel modeloNotas = new DefaultTableModel();
     public ActualizacionDeNotas() {
         initComponents();
+        armarEncabezado();
     }
 
     /**
@@ -161,4 +158,11 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTNotaMateria;
     // End of variables declaration//GEN-END:variables
+private void armarEncabezado(){
+    modeloNotas.addColumn("CÓDIGO");
+    modeloNotas.addColumn("NOMBRE");
+    modeloNotas.addColumn("NOTA");
+    jTNotaMateria.setModel(modeloNotas);
+}
+      
 }
