@@ -63,6 +63,11 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         jBGuardarMateria.setText("Guardar");
 
         jBSalirDeMateria.setText("Salir");
+        jBSalirDeMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirDeMateriaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,6 +149,10 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBSalirDeMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirDeMateriaActionPerformed
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jBSalirDeMateriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
