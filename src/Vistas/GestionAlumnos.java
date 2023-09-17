@@ -5,6 +5,11 @@
  */
 package Vistas;
 
+import AccesoADatos.AlumnoData;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
+
 /**
  *
  * @author MARCELA
@@ -78,6 +83,11 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         jBEliminarAlumno.setText("Eliminar");
 
         jBGuardarAlumno.setText("Guardar");
+        jBGuardarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarAlumnoActionPerformed(evt);
+            }
+        });
 
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +150,7 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jBSalir)))
-                .addGap(18, 18, 18))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,6 +204,18 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
      this.dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
+
+    private void jBGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarAlumnoActionPerformed
+       /* int dni = Integer.parseInt(jTDni.getText());
+        String apellido = jTApellido.getText();
+        String nombre = jTNombre.getText();        
+       Date fechaNacimiento = (Date) jDFechaNacimiento.getDate();
+       SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+       String fechaFormateada = sdf.format(fechaNacimiento);
+       boolean estado = jREstado.isSelected();
+        AlumnoData.guardarAlumno(dni,"apellido","nombre",fechaNacimiento,estado);
+        // dataManager.cargarDatos(nombre, edad, direccion);*/
+    }//GEN-LAST:event_jBGuardarAlumnoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
