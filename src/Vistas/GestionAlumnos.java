@@ -7,6 +7,7 @@ package Vistas;
 
 import AccesoADatos.AlumnoData;
 import Entidades.Alumno;
+import com.toedter.calendar.JDateChooser;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -65,6 +66,11 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         });
 
         jBBuscarAlumno.setText("Buscar");
+        jBBuscarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarAlumnoActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Apellido");
 
@@ -81,6 +87,11 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         });
 
         jBIngresarAlumno.setText("Nuevo");
+        jBIngresarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBIngresarAlumnoActionPerformed(evt);
+            }
+        });
 
         jBEliminarAlumno.setText("Eliminar");
 
@@ -216,6 +227,21 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
         // dataManager.cargarDatos(nombre, edad, direccion);*/
     }//GEN-LAST:event_jBGuardarAlumnoActionPerformed
+
+    private void jBBuscarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBBuscarAlumnoActionPerformed
+
+    private void jBIngresarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBIngresarAlumnoActionPerformed
+    jTDni.setText("");
+    jTApellido.setText("");
+    jTNombre.setText("");
+    jREstado.setSelected(false); 
+    jDFechaNacimiento.setDate(null);
+    
+    
+// TODO add your handling code here:
+    }//GEN-LAST:event_jBIngresarAlumnoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
