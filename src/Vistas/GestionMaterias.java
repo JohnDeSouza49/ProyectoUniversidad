@@ -6,12 +6,16 @@ package Vistas;
 
 import AccesoADatos.MateriaData;
 import Entidades.Materia;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
 
 /**
  *
  * @author Ivan Martin
  */
 public class GestionMaterias extends javax.swing.JInternalFrame {
+    public static List<Materia> listaMaterias= new ArrayList<>();
 
     /**
      * Creates new form GestionMaterias
@@ -169,10 +173,13 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
     private void jBGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarMateriaActionPerformed
         // TODO add your handling code here:
         //int codigo= Integer.parseInt(jTCodigoDeMateria.getText());
+        Materia mat=null;
         String nombre= jTMateria.getText();
         int anio=Integer.parseInt(jTAnio.getText());
         boolean estado = jREstadoMateria.isSelected();
-        materiaD.guardarMateria(new Materia(nombre,anio,estado));
+        materiaD.guardarMateria(mat=new Materia(nombre,anio,estado));
+        listaMaterias.add(mat);
+        
     }//GEN-LAST:event_jBGuardarMateriaActionPerformed
 
 
