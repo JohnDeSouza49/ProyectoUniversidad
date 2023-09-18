@@ -5,6 +5,7 @@
  */
 package Vistas;
 
+import AccesoADatos.AlumnoData;
 import javax.swing.JFrame;
 
 /**
@@ -13,11 +14,11 @@ import javax.swing.JFrame;
  */
 public class UniversidadGrupo57 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form UniversidadGrupo57
-     */
+    private AlumnoData alumnoD;
+    
     public UniversidadGrupo57() {
         initComponents();
+        alumnoD = new AlumnoData();
     }
 
     /**
@@ -170,7 +171,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         // TODO add your handling code here:
         jDEscritorio.removeAll();
         jDEscritorio.repaint();
-        GestionAlumnos gp = new GestionAlumnos();
+        GestionAlumnos gp = new GestionAlumnos(alumnoD);
         gp.setVisible(true);
         jDEscritorio.add(gp);
         jDEscritorio.moveToFront(gp);

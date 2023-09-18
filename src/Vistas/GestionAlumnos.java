@@ -6,8 +6,11 @@
 package Vistas;
 
 import AccesoADatos.AlumnoData;
+import Entidades.Alumno;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 
 /**
@@ -16,11 +19,10 @@ import java.text.SimpleDateFormat;
  */
 public class GestionAlumnos extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form FormularioAlumno
-     */
-    public GestionAlumnos() {
+    private AlumnoData alumnoD;
+    public GestionAlumnos(AlumnoData alumnoD) {
         initComponents();
+        this.alumnoD = alumnoD;
     }
 
     /**
@@ -204,16 +206,14 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
      this.dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
-
+     
     private void jBGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarAlumnoActionPerformed
-       /* int dni = Integer.parseInt(jTDni.getText());
+      int dni = Integer.parseInt(jTDni.getText());
         String apellido = jTApellido.getText();
         String nombre = jTNombre.getText();        
-       Date fechaNacimiento = (Date) jDFechaNacimiento.getDate();
-       SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-       String fechaFormateada = sdf.format(fechaNacimiento);
+       LocalDate fechaNacimiento =  jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
        boolean estado = jREstado.isSelected();
-        AlumnoData.guardarAlumno(dni,"apellido","nombre",fechaNacimiento,estado);
+        alumnoD.guardarAlumno(new Alumno(dni,apellido,nombre,fechaNacimiento,estado));
         // dataManager.cargarDatos(nombre, edad, direccion);*/
     }//GEN-LAST:event_jBGuardarAlumnoActionPerformed
 
