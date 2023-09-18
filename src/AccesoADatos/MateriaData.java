@@ -20,13 +20,7 @@ public class MateriaData {
     public MateriaData() {
         conex = Conexion.getConexion();
     }
-
-
-
-            
-        
-             
-        
+    
     public void guardarMateria(Materia materia) {
         String sql = "INSERT INTO materia (nombre,año, estado) VALUES (?, ?, ?)";
         try {

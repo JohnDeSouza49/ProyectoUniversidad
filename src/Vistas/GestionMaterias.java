@@ -61,9 +61,20 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Estado");
 
+        jTCodigoDeMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTCodigoDeMateriaActionPerformed(evt);
+            }
+        });
+
         jBBuscarMateria.setText("Buscar");
 
         jBLimpiarMateria.setText("Nuevo");
+        jBLimpiarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarMateriaActionPerformed(evt);
+            }
+        });
 
         jBEliminarMateria.setText("Eliminar");
 
@@ -175,6 +186,18 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         materiaD.guardarMateria(new Materia(nombre,anio,estado));
     }//GEN-LAST:event_jBGuardarMateriaActionPerformed
 
+    private void jBLimpiarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarMateriaActionPerformed
+    jTCodigoDeMateria.setText("");
+    jTMateria.setText("");
+    jTAnio.setText("");
+    jREstadoMateria.setSelected(false);
+    
+    }//GEN-LAST:event_jBLimpiarMateriaActionPerformed
+
+    private void jTCodigoDeMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCodigoDeMateriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTCodigoDeMateriaActionPerformed
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscarMateria;

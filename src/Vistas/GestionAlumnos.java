@@ -65,6 +65,11 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         });
 
         jBBuscarAlumno.setText("Buscar");
+        jBBuscarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarAlumnoActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Apellido");
 
@@ -216,6 +221,10 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
         // dataManager.cargarDatos(nombre, edad, direccion);*/
     }//GEN-LAST:event_jBGuardarAlumnoActionPerformed
+
+    private void jBBuscarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBBuscarAlumnoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
