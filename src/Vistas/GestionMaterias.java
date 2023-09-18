@@ -189,7 +189,7 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         int anio=Integer.parseInt(jTAnio.getText());
         boolean estado = jREstadoMateria.isSelected();
         materiaD.guardarMateria(mat=new Materia(nombre,anio,estado));
-        listaMaterias.add(mat);
+       
         
     }//GEN-LAST:event_jBGuardarMateriaActionPerformed
 
