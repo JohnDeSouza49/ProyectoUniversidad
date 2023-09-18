@@ -38,7 +38,7 @@ public class MateriaData {
             ResultSet id = ps.getGeneratedKeys();
             if (id.next()) {
                 materia.setIdMateria(id.getInt(1));
-                System.out.println("Materia agregada con exito");
+                JOptionPane.showMessageDialog(null,"Materia Agregada");
             }
 
             ps.close();
