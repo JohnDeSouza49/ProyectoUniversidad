@@ -100,7 +100,7 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-       this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
 
 

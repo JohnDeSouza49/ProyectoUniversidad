@@ -12,7 +12,6 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 
-
 /**
  *
  * @author MARCELA
@@ -20,6 +19,7 @@ import java.time.ZoneId;
 public class GestionAlumnos extends javax.swing.JInternalFrame {
 
     private AlumnoData alumnoD;
+
     public GestionAlumnos(AlumnoData alumnoD) {
         initComponents();
         this.alumnoD = alumnoD;
@@ -204,16 +204,16 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTDniActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-     this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
-     
+
     private void jBGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarAlumnoActionPerformed
-      int dni = Integer.parseInt(jTDni.getText());
+        int dni = Integer.parseInt(jTDni.getText());
         String apellido = jTApellido.getText();
-        String nombre = jTNombre.getText();        
-       LocalDate fechaNacimiento =  jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-       boolean estado = jREstado.isSelected();
-        alumnoD.guardarAlumno(new Alumno(dni,apellido,nombre,fechaNacimiento,estado));
+        String nombre = jTNombre.getText();
+        LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        boolean estado = jREstado.isSelected();
+        alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
         // dataManager.cargarDatos(nombre, edad, direccion);*/
     }//GEN-LAST:event_jBGuardarAlumnoActionPerformed
 
