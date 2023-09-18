@@ -129,7 +129,7 @@ public class AlumnoData {
                 alumno.setEstado(rs.getBoolean("estado"));
                 alumnos.add(alumno);
             }
-            ps.close();
+            ps.close();  
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Alumno " + ex.getMessage());

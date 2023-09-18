@@ -4,6 +4,9 @@
  */
 package Vistas;
 
+import AccesoADatos.MateriaData;
+import Entidades.Materia;
+
 /**
  *
  * @author Ivan Martin
@@ -13,9 +16,13 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
     /**
      * Creates new form GestionMaterias
      */
-    public GestionMaterias() {
+    private MateriaData materiaD;
+    public GestionMaterias(MateriaData materiaD) {
+        this.materiaD=materiaD;
         initComponents();
     }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,6 +68,11 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         jBEliminarMateria.setText("Eliminar");
 
         jBGuardarMateria.setText("Guardar");
+        jBGuardarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarMateriaActionPerformed(evt);
+            }
+        });
 
         jBSalirDeMateria.setText("Salir");
         jBSalirDeMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -153,6 +165,15 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
     private void jBSalirDeMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirDeMateriaActionPerformed
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jBSalirDeMateriaActionPerformed
+
+    private void jBGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarMateriaActionPerformed
+        // TODO add your handling code here:
+        //int codigo= Integer.parseInt(jTCodigoDeMateria.getText());
+        String nombre= jTMateria.getText();
+        int anio=Integer.parseInt(jTAnio.getText());
+        boolean estado = jREstadoMateria.isSelected();
+        materiaD.guardarMateria(new Materia(nombre,anio,estado));
+    }//GEN-LAST:event_jBGuardarMateriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

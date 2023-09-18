@@ -6,6 +6,7 @@
 package Vistas;
 
 import AccesoADatos.AlumnoData;
+import AccesoADatos.MateriaData;
 import javax.swing.JFrame;
 
 /**
@@ -15,10 +16,12 @@ import javax.swing.JFrame;
 public class UniversidadGrupo57 extends javax.swing.JFrame {
 
     private AlumnoData alumnoD;
+    private MateriaData materiaD;
     
     public UniversidadGrupo57() {
         initComponents();
         alumnoD = new AlumnoData();
+        materiaD= new MateriaData();
     }
 
     /**
@@ -201,7 +204,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
     private void miFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miFormularioMateriaActionPerformed
         jDEscritorio.removeAll();
         jDEscritorio.repaint();
-        GestionMaterias an = new GestionMaterias();
+        GestionMaterias an = new GestionMaterias(materiaD);
         an.setVisible(true);
         jDEscritorio.add(an);
         jDEscritorio.moveToFront(an);
