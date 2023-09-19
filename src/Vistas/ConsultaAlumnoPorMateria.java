@@ -36,7 +36,7 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
               int id=0;
                 for(Materia a:materiaD.listaMaterias()){
                     
-                    jCBMateria.addItem(a.toString()+", "+a.getIdMateria());
+                    jCBMateria.addItem(a.getNombre()+", "+a.getIdMateria());
                 }
        
        
@@ -144,8 +144,8 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jCBMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriaActionPerformed
-        int materia=(int) jCBMateria.getSelectedItem();
-        System.out.println(materia);
+       // int materia=(int) jCBMateria.getSelectedItem();
+        //System.out.println(materia);
         /* for(Alumno a:insD.obtenerAlumnosXMateria(materia)){
             modeloMateria.addRow(new Object[]{
                 a.getIdAlumno(),
