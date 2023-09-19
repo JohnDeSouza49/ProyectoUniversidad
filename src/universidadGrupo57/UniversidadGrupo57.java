@@ -8,6 +8,7 @@ package universidadGrupo57;
 import java.time.LocalDate;
 import AccesoADatos.AlumnoData;
 import AccesoADatos.Conexion;
+import AccesoADatos.InscripcionData;
 import AccesoADatos.MateriaData;
 import Entidades.Alumno;
 import Entidades.Materia;
@@ -22,9 +23,8 @@ public class UniversidadGrupo57 {
         //AlumnoData alu=new AlumnoData();
         //alu.listarAlumnos();
         // alu.guardarAlumno(juan);
-        Materia uno = new Materia(6, "Literatura", 2, true);
-        MateriaData materia = new MateriaData();
-        materia.modificarMateria(uno);
+        InscripcionData iD= new InscripcionData();
+        System.out.println(iD.obtenerAlumnosXMateria(7));
 
         //System.out.println(materia.listarMaterias());
         //Connection con = Conexion.getConexion();  // TODO code application logic here
