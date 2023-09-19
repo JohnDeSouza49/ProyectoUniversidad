@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class InscripcionData {
 
@@ -20,7 +21,14 @@ public class InscripcionData {
 
     public void guardarInscripcion(int idAlumno, int idMateria)  throws SQLException {
         String sql = "INSERT INTO Inscripcion (idAlumno, idMateria) VALUES (?, ?)";
-
+         try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, idAlumno);
+            ps.setInt(2, idMateria);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            //JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno" + e.getMessage());
+             JOptionPane.showMessageDialog(null, "Error al guardar la inscripción"+ e.getMessage());
+        }
        
     }
 
