@@ -7,15 +7,20 @@ package Vistas;
 import AccesoADatos.AlumnoData;
 import AccesoADatos.InscripcionData;
 import Entidades.Alumno;
+import Entidades.Materia;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 
 public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
-
+    private DefaultComboBoxModel cbmodelo= null;
     private  DefaultTableModel modeloNotas = new DefaultTableModel();
-    public ActualizacionDeNotas() {
+    private AlumnoData ad;
+    public ActualizacionDeNotas(AlumnoData ad ) {
+        this.ad=ad;
         initComponents();
         armarEncabezado();
+        llenarCB();
     }
 
     /**
@@ -128,11 +133,7 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCBAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBAlumnoActionPerformed
-         // Crear una instancia de AlumnoData
-        AlumnoData Lista = new AlumnoData();
-        // Llamar al método de AlumnoData
-        Lista.listarAlumnos();
-        
+         
     }//GEN-LAST:event_jCBAlumnoActionPerformed
 
     private void jBGuardarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarNotaActionPerformed
@@ -163,6 +164,13 @@ private void armarEncabezado(){
     modeloNotas.addColumn("NOMBRE");
     modeloNotas.addColumn("NOTA");
     jTNotaMateria.setModel(modeloNotas);
+}
+private void llenarCB(){
+    cbmodelo= new DefaultComboBoxModel();
+   jCBAlumno.setModel(cbmodelo);
+     for(Alumno aux:ad.listarAlumnos())           
+      cbmodelo.addElement(aux);
+            
 }
       
 }

@@ -25,6 +25,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         alumnoD = new AlumnoData();
         materiaD= new MateriaData();
         insD= new InscripcionData();
+        
     }
 
     /**
@@ -188,7 +189,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         // TODO add your handling code here:
         jDEscritorio.removeAll();
         jDEscritorio.repaint();
-        ActualizacionDeNotas an = new ActualizacionDeNotas();
+        ActualizacionDeNotas an = new ActualizacionDeNotas(alumnoD);
         an.setVisible(true);
         jDEscritorio.add(an);
         jDEscritorio.moveToFront(an);

@@ -20,11 +20,10 @@ public class UniversidadGrupo57 {
 
         //Connection con = Conexion.getConexion();
         //Alumno juan=new Alumno (45866683,"Martinez","pedro",LocalDate.of(1980,4,25),true);
-        //AlumnoData alu=new AlumnoData();
-        //alu.listarAlumnos();
+        AlumnoData alu=new AlumnoData();
+        System.out.println(alu.listarAlumnos());
         // alu.guardarAlumno(juan);
-        InscripcionData iD= new InscripcionData();
-        System.out.println(iD.obtenerAlumnosXMateria(23));
+        
 
         //System.out.println(materia.listarMaterias());
         //Connection con = Conexion.getConexion();  // TODO code application logic here
