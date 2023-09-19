@@ -6,7 +6,7 @@ public class Inscripcion {
     private double nota;
     private Alumno alumno;
     private Materia materia;
-
+    
     public Inscripcion(int idInscripto, int nota, Alumno alumno, Materia materia) {
         this.idInscripto = idInscripto;
         this.nota = nota;
