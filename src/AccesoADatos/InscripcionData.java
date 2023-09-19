@@ -25,7 +25,7 @@ public class InscripcionData {
        
         String sql = "INSERT INTO inscripcion(nota, id_alumno, id_materia)  VALUES (?, ?, ?)";
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
-               ps.setInt(1, inscripcion.getNota());
+            ps.setInt(1, inscripcion.getNota());
             ps.setInt(2, inscripcion.getAlumno().getIdAlumno());
             ps.setInt(3, inscripcion.getMateria().getIdMateria());
             ps.executeUpdate();
@@ -40,16 +40,21 @@ public class InscripcionData {
     public List<Inscripcion> obtenerInscripciones() {
 
         List<Inscripcion> inscripciones = new ArrayList<>();
-        String sql = "SELECT * FROM Inscripcion";
+        String sql = "SELECT * FROM inscripcion";
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {
-                int idInscripto = rs.getInt("idI");
-                double nota = rs.getInt("nota");
-               String materia = rs.getString("materia");
+                int idAlumno = rs.getInt("id_alumno");
+                int idInscripto = rs.getInt("id_inscripto");
+                double nota = rs.getDouble("nota");
+               int materia = rs.getInt("id_materia");
+               Alumno alu = null;
+               Materia mat = null;
                 
-     Inscripcion inscripcion = new Inscripcion(idInscripto, nota, "materia");
+               alu = aluData.buscarAlumno(idAlumno);
+               mat = matData.buscarMateria(materia);
+     Inscripcion inscripcion = new Inscripcion(idInscripto,nota, alu, mat);
                 inscripciones.add(inscripcion);
             }
         } catch (SQLException e) {

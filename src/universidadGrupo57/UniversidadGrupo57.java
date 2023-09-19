@@ -28,7 +28,7 @@ public class UniversidadGrupo57 {
 
         //Connection con = Conexion.getConexion();
         //Alumno juan=new Alumno (45866683,"Martinez","pedro",LocalDate.of(1980,4,25),true);
-        AlumnoData alu=new AlumnoData();
+       /* AlumnoData alu=new AlumnoData();
         MateriaData mat = new MateriaData();
         Materia materia = null;
         Alumno alumno = null;
@@ -37,7 +37,7 @@ public class UniversidadGrupo57 {
         Inscripcion inscripcion = new Inscripcion( 8, alumno,  materia);
         InscripcionData insc = new InscripcionData();
         try {
-            insc.guardarInscripcion(inscripcion);
+            insc.guardarInscripcion(inscripcion);*/
             
             //System.out.println(alu.listarAlumnos());
             // alu.guardarAlumno(juan);
@@ -48,9 +48,10 @@ public class UniversidadGrupo57 {
             // Alumno juan = new Alumno(12312366, "luna", "pedro", LocalDate.of(1980, 4, 25), true);
             //AlumnoData alu = new AlumnoData();
             //alu.guardarAlumno(juan);
-        } catch (SQLException ex) {
+       /* } catch (SQLException ex) {
             Logger.getLogger(UniversidadGrupo57.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        }*/
+       InscripcionData insc = new InscripcionData();
+        System.out.println(insc.obtenerInscripciones());
     }
 }
