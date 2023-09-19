@@ -61,9 +61,10 @@ public class Inscripcion {
 
     @Override
     public String toString() {
-        String insc = idInscripto + " " + alumno.getApellido() + ", " + alumno.getNombre() + ", "
-                + materia.getNombre();
-        return insc;
+        return "Inscripcion{" + "idInscripto=" + idInscripto + ", nota=" + nota + ", alumno=" + alumno + ", materia=" + materia + '}';
     }
+
+   
+    
 }
 

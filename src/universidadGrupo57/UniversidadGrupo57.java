@@ -46,7 +46,10 @@ public class UniversidadGrupo57 {
             //System.out.println(materia.listarMaterias());
             //Connection con = Conexion.getConexion();  // TODO code application logic here
             // Alumno juan = new Alumno(12312366, "luna", "pedro", LocalDate.of(1980, 4, 25), true);
-            //AlumnoData alu = new AlumnoData();
+           // AlumnoData alu = new AlumnoData();
+            //MateriaData mat = new MateriaData();
+            //System.out.println(alu.buscarAlumno(8));
+           //System.out.println(mat.buscarMateria(23));
             //alu.guardarAlumno(juan);
        /* } catch (SQLException ex) {
             Logger.getLogger(UniversidadGrupo57.class.getName()).log(Level.SEVERE, null, ex);

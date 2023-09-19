@@ -41,21 +41,21 @@ public class InscripcionData {
 
         List<Inscripcion> inscripciones = new ArrayList<>();
         String sql = "SELECT * FROM inscripcion";
-        try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ResultSet rs = ps.executeQuery();
-            
+        Alumno alu = null;
+        Materia mat = null;
+        Inscripcion insc=null;
+        try{
+        PreparedStatement ps = con.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                int idAlumno = rs.getInt("id_alumno");
-                int idInscripto = rs.getInt("id_inscripto");
-                double nota = rs.getDouble("nota");
-               int materia = rs.getInt("id_materia");
-               Alumno alu = null;
-               Materia mat = null;
-                
-               alu = aluData.buscarAlumno(idAlumno);
-               mat = matData.buscarMateria(materia);
-     Inscripcion inscripcion = new Inscripcion(idInscripto,nota, alu, mat);
-                inscripciones.add(inscripcion);
+                insc= new Inscripcion();
+                insc.setIdInscripto(rs.getInt("id_inscripto"));
+                insc.setNota(rs.getDouble("nota"));
+                int alumno=rs.getInt("id_alumno");
+               int materia = rs.getInt("id_materia");   
+                insc.setAlumno(alu);
+                insc.setMateria(mat);
+                inscripciones.add(insc);
             }
         } catch (SQLException e) {
            JOptionPane.showMessageDialog(null, "Error al obtener la lista" + e.getMessage());
