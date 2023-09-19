@@ -34,9 +34,8 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
             }*/
             private void llenarCB(){
               int id=0;
-                for(Materia a:materiaD.listaMaterias()){
-                    
-                    jCBMateria.addItem(a.getNombre()+", "+a.getIdMateria());
+                for(Materia a:materiaD.listaMaterias()){  
+                    jCBMateria.addItem(a.toString());
                 }
        
        
@@ -125,7 +124,7 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jCBMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -144,7 +143,9 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jCBMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriaActionPerformed
-       // int materia=(int) jCBMateria.getSelectedItem();
+        //Materia materia= (Materia) jCBMateria.getSelectedItem();
+        
+       
         //System.out.println(materia);
         /* for(Alumno a:insD.obtenerAlumnosXMateria(materia)){
             modeloMateria.addRow(new Object[]{
