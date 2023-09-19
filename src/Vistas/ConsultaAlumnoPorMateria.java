@@ -5,26 +5,19 @@
 package Vistas;
 
 import AccesoADatos.Conexion;
+import AccesoADatos.InscripcionData;
 import AccesoADatos.MateriaData;
 import Entidades.Alumno;
 import Entidades.Materia;
-
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 
 public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     //public static TreeSet<Materia> listaMaterias= new TreeSet<>();
     private DefaultTableModel modeloMateria = new DefaultTableModel();
    private MateriaData materiaD;
+   private InscripcionData insD;
     private Connection conex=null;
     
      /*private void armarCB(String materias, JComboBox model){
@@ -40,10 +33,13 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
                 Logger.getLogger(ConsultaAlumnoPorMateria.class.getName()).log(Level.SEVERE, null, ex);
             }*/
             private void llenarCB(){
-               List materias= materiaD.listaMaterias();
-                for(Object aux: materias){
-                    jCBMateria.addItem(aux.toString());
+              int id=0;
+                for(Materia a:materiaD.listaMaterias()){
+                    
+                    jCBMateria.addItem(a.toString()+", "+a.getIdMateria());
                 }
+       
+       
             }
             
         
@@ -148,29 +144,16 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jCBMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriaActionPerformed
-       String materia=(String) jCBMateria.getSelectedItem();
-       Alumno a= null;
-       String sql="select * from alumno inner JOIN inscripcion on (inscripcion.id_alumno=alumno.id_alumno) inner join materia on(materia.id_materia=inscripcion.id_materia) where materia.nombre=?";
-        try {
-            PreparedStatement ps=conex.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1,materia);
-            ResultSet rs= ps.executeQuery();
-            while(rs.next()){
-                a= new Alumno();
-                a.setIdAlumno(rs.getInt("id_alumno"));
-                a.setDni(rs.getInt("dni"));
-                a.setApellido(rs.getString("apellido"));
-                a.setNombre(rs.getString("nombre"));
-                
-                
-                
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(ConsultaAlumnoPorMateria.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
+        int materia=(int) jCBMateria.getSelectedItem();
+        System.out.println(materia);
+        /* for(Alumno a:insD.obtenerAlumnosXMateria(materia)){
+            modeloMateria.addRow(new Object[]{
+                a.getIdAlumno(),
+                a.getDni(),
+                a.getApellido(),
+                a.getNombre()
 
+                *});*/
 
     }//GEN-LAST:event_jCBMateriaActionPerformed
 

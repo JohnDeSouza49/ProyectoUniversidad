@@ -4,6 +4,8 @@ import Entidades.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class InscripcionData {
 
@@ -57,8 +59,32 @@ public class InscripcionData {
     }
 
     public List<Alumno> obtenerAlumnosXMateria(int idMateria) {
+        List<Alumno> materiasXAlumno = new ArrayList<Alumno>();
+      String sql="SELECT * from alumno inner join inscripcion on(inscripcion.id_alumno=alumno.id_alumno) where id_materia=?";
+      PreparedStatement ps;
+      Alumno a= null;
+        try {
+            ps = con.prepareStatement(sql);
+            ResultSet rs= ps.executeQuery();
+            ps.setInt(1, idMateria);
+          while(rs.next()){
+                a= new Alumno();
+                a.setIdAlumno(rs.getInt("id_alumno"));
+                a.setDni(rs.getInt("dni"));
+                a.setApellido(rs.getString("apellido"));
+                a.setNombre(rs.getString("nombre"));
+                materiasXAlumno.add(a);
+                ps.close();
+          }
+                
 
-        List<Alumno> materiasXAlumno = new ArrayList<>();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+      
+        
 
         return materiasXAlumno;
     }
