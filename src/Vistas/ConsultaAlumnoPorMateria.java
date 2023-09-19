@@ -10,32 +10,27 @@ import AccesoADatos.MateriaData;
 import Entidades.Alumno;
 import Entidades.Materia;
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     //public static TreeSet<Materia> listaMaterias= new TreeSet<>();
     private DefaultTableModel modeloMateria = new DefaultTableModel();
+    private DefaultComboBoxModel modelito= null;
    private MateriaData materiaD;
    private InscripcionData insD;
     private Connection conex=null;
-    
-     /*private void armarCB(String materias, JComboBox model){
-            String sql="SELECT nombre from materia WHERE estado=1";
-            try {
-                PreparedStatement ps= conex.prepareStatement(sql);
-                ResultSet rs= ps.executeQuery();
-                while(rs.next()){
-                    model.addItem(rs.getString(materias));
-                }
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(ConsultaAlumnoPorMateria.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
+
             private void llenarCB(){
-              int id=0;
-                for(Materia a:materiaD.listaMaterias()){  
-                    jCBMateria.addItem(a.toString());
+                modelito= new DefaultComboBoxModel();
+                jCBMateria.setModel(modelito);
+                for(Materia aux:materiaD.listaMaterias()){
+                    modelito.addElement(aux);
+                
+                
                 }
        
        
@@ -45,11 +40,12 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
 
     public ConsultaAlumnoPorMateria(MateriaData materiaD) {
         this.materiaD=materiaD;
+        this.insD=insD;
         conex= Conexion.getConexion();
         initComponents();
         armarEncabezado();
         llenarCB();
-        //armarCB("nombre",jCBMateria);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -62,6 +58,7 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTMaterias = new javax.swing.JTable();
         jBSalir = new javax.swing.JButton();
+        hola = new javax.swing.JLabel();
 
         setTitle("Listado de alumnos");
 
@@ -95,6 +92,8 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
             }
         });
 
+        hola.setText("jLabel3");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,8 +114,13 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
                         .addComponent(jCBMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(jBSalir)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(jBSalir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(hola)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -130,7 +134,9 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
                     .addComponent(jCBMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
+                .addComponent(hola)
+                .addGap(7, 7, 7)
                 .addComponent(jBSalir)
                 .addGap(46, 46, 46))
         );
@@ -143,22 +149,15 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jCBMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriaActionPerformed
-        //Materia materia= (Materia) jCBMateria.getSelectedItem();
-        
+        Materia materia= (Materia) jCBMateria.getSelectedItem();
+        int id= materia.getIdMateria();
+        hola.setText(id+"");
        
-        //System.out.println(materia);
-        /* for(Alumno a:insD.obtenerAlumnosXMateria(materia)){
-            modeloMateria.addRow(new Object[]{
-                a.getIdAlumno(),
-                a.getDni(),
-                a.getApellido(),
-                a.getNombre()
-
-                *});*/
-
+         
     }//GEN-LAST:event_jCBMateriaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel hola;
     private javax.swing.JButton jBSalir;
     private javax.swing.JComboBox<String> jCBMateria;
     private javax.swing.JLabel jLabel1;

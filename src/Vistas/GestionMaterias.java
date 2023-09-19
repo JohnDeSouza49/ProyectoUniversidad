@@ -15,7 +15,7 @@ import java.util.TreeSet;
  * @author Ivan Martin
  */
 public class GestionMaterias extends javax.swing.JInternalFrame {
-    public static List<Materia> listaMaterias= new ArrayList<>();
+   
 
     /**
      * Creates new form GestionMaterias

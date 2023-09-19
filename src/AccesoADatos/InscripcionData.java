@@ -59,21 +59,24 @@ public class InscripcionData {
     }
 
     public List<Alumno> obtenerAlumnosXMateria(int idMateria) {
-        List<Alumno> materiasXAlumno = new ArrayList<Alumno>();
+        List<Alumno> materiasXAlumno = new ArrayList<>();
       String sql="SELECT * from alumno inner join inscripcion on(inscripcion.id_alumno=alumno.id_alumno) where id_materia=?";
       PreparedStatement ps;
-      Alumno a= null;
+      Alumno alumno= null;
         try {
-            ps = con.prepareStatement(sql);
-            ResultSet rs= ps.executeQuery();
+            ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, idMateria);
+            ResultSet rs= ps.executeQuery();
+            
           while(rs.next()){
-                a= new Alumno();
-                a.setIdAlumno(rs.getInt("id_alumno"));
-                a.setDni(rs.getInt("dni"));
-                a.setApellido(rs.getString("apellido"));
-                a.setNombre(rs.getString("nombre"));
-                materiasXAlumno.add(a);
+                alumno = new Alumno();
+                alumno.setIdAlumno(rs.getInt("id_alumno"));
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
+                alumno.setEstado(true);
+                materiasXAlumno.add(alumno);
                 ps.close();
           }
                 
