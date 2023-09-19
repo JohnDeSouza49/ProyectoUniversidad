@@ -24,7 +24,7 @@ public class UniversidadGrupo57 {
         //alu.listarAlumnos();
         // alu.guardarAlumno(juan);
         InscripcionData iD= new InscripcionData();
-        System.out.println(iD.obtenerAlumnosXMateria(7));
+        System.out.println(iD.obtenerAlumnosXMateria(23));
 
         //System.out.println(materia.listarMaterias());
         //Connection con = Conexion.getConexion();  // TODO code application logic here
