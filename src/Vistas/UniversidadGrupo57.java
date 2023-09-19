@@ -6,6 +6,7 @@
 package Vistas;
 
 import AccesoADatos.AlumnoData;
+import AccesoADatos.InscripcionData;
 import AccesoADatos.MateriaData;
 import javax.swing.JFrame;
 
@@ -17,11 +18,13 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
 
     private AlumnoData alumnoD;
     private MateriaData materiaD;
+    private InscripcionData insD;
     
     public UniversidadGrupo57() {
         initComponents();
         alumnoD = new AlumnoData();
         materiaD= new MateriaData();
+        insD= new InscripcionData();
     }
 
     /**
@@ -195,7 +198,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         // TODO add your handling JDestokPane: escritorio
         jDEscritorio.removeAll();
         jDEscritorio.repaint();
-        ConsultaAlumnoPorMateria an = new ConsultaAlumnoPorMateria(materiaD);
+        ConsultaAlumnoPorMateria an = new ConsultaAlumnoPorMateria(materiaD, insD);
         an.setVisible(true);
         jDEscritorio.add(an);
         jDEscritorio.moveToFront(an);
