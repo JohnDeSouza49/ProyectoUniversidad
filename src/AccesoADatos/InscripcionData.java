@@ -16,8 +16,10 @@ public class InscripcionData {
         con = Conexion.getConexion();
     }
 
-    public void guardarInscripcion(Inscripcion insc) {
+    public void guardarInscripcion(int idAlumno, int idMateria)  throws SQLException {
+        String sql = "INSERT INTO Inscripcion (idAlumno, idMateria) VALUES (?, ?)";
 
+       
     }
 
     public List<Inscripcion> obtenerInscripciones() {
