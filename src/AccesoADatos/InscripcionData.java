@@ -13,18 +13,23 @@ public class InscripcionData {
     private Connection con;
     private MateriaData matData;
     private AlumnoData aluData;
-
+    private Inscripcion inscripcion;
+    private Alumno alumno;
+    private Materia materia;
     public InscripcionData() {
 
         con = Conexion.getConexion();
     }
 
-    public void guardarInscripcion(int idAlumno, int idMateria) throws SQLException {
-        String sql = "INSERT INTO Inscripcion (idAlumno, idMateria) VALUES (?, ?)";
-        try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1, idAlumno);
-            ps.setInt(2, idMateria);
+    public void guardarInscripcion(Inscripcion inscripcion) throws SQLException {
+       
+        String sql = "INSERT INTO inscripcion(nota, id_alumno, id_materia)  VALUES (?, ?, ?)";
+                try (PreparedStatement ps = con.prepareStatement(sql)) {
+               ps.setInt(1, inscripcion.getNota());
+            ps.setInt(2, alumno.getIdAlumno());
+            ps.setInt(3, materia.getIdMateria());
             ps.executeUpdate();
+                    System.out.println("todo bien");
         } catch (SQLException e) {
             //JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno" + e.getMessage());
             JOptionPane.showMessageDialog(null, "Error al guardar la inscripción" + e.getMessage());
