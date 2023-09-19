@@ -26,8 +26,8 @@ public class InscripcionData {
         String sql = "INSERT INTO inscripcion(nota, id_alumno, id_materia)  VALUES (?, ?, ?)";
                 try (PreparedStatement ps = con.prepareStatement(sql)) {
                ps.setInt(1, inscripcion.getNota());
-            ps.setInt(2, alumno.getIdAlumno());
-            ps.setInt(3, materia.getIdMateria());
+            ps.setInt(2, inscripcion.getAlumno().getIdAlumno());
+            ps.setInt(3, inscripcion.getMateria().getIdMateria());
             ps.executeUpdate();
                     System.out.println("todo bien");
         } catch (SQLException e) {
