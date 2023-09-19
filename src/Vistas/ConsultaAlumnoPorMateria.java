@@ -5,11 +5,16 @@
 package Vistas;
 
 import AccesoADatos.Conexion;
+import AccesoADatos.MateriaData;
+import Entidades.Alumno;
+import Entidades.Materia;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -19,10 +24,10 @@ import javax.swing.table.DefaultTableModel;
 public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     //public static TreeSet<Materia> listaMaterias= new TreeSet<>();
     private DefaultTableModel modeloMateria = new DefaultTableModel();
-    DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
+   private MateriaData materiaD;
     private Connection conex=null;
     
-     private void armarCB(String materias, JComboBox model){
+     /*private void armarCB(String materias, JComboBox model){
             String sql="SELECT nombre from materia WHERE estado=1";
             try {
                 PreparedStatement ps= conex.prepareStatement(sql);
@@ -33,16 +38,23 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
                 
             } catch (SQLException ex) {
                 Logger.getLogger(ConsultaAlumnoPorMateria.class.getName()).log(Level.SEVERE, null, ex);
+            }*/
+            private void llenarCB(){
+               List materias= materiaD.listaMaterias();
+                for(Object aux: materias){
+                    jCBMateria.addItem(aux.toString());
+                }
             }
             
-            
         
-}
-    public ConsultaAlumnoPorMateria() {
+
+    public ConsultaAlumnoPorMateria(MateriaData materiaD) {
+        this.materiaD=materiaD;
         conex= Conexion.getConexion();
         initComponents();
         armarEncabezado();
-        armarCB("nombre",jCBMateria);
+        llenarCB();
+        //armarCB("nombre",jCBMateria);
     }
 
     @SuppressWarnings("unchecked")
@@ -136,7 +148,28 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jCBMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriaActionPerformed
-        
+       String materia=(String) jCBMateria.getSelectedItem();
+       Alumno a= null;
+       String sql="select * from alumno inner JOIN inscripcion on (inscripcion.id_alumno=alumno.id_alumno) inner join materia on(materia.id_materia=inscripcion.id_materia) where materia.nombre=?";
+        try {
+            PreparedStatement ps=conex.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1,materia);
+            ResultSet rs= ps.executeQuery();
+            while(rs.next()){
+                a= new Alumno();
+                a.setIdAlumno(rs.getInt("id_alumno"));
+                a.setDni(rs.getInt("dni"));
+                a.setApellido(rs.getString("apellido"));
+                a.setNombre(rs.getString("nombre"));
+                
+                
+                
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaAlumnoPorMateria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
 
 
     }//GEN-LAST:event_jCBMateriaActionPerformed

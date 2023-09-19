@@ -195,7 +195,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         // TODO add your handling JDestokPane: escritorio
         jDEscritorio.removeAll();
         jDEscritorio.repaint();
-        ConsultaAlumnoPorMateria an = new ConsultaAlumnoPorMateria();
+        ConsultaAlumnoPorMateria an = new ConsultaAlumnoPorMateria(materiaD);
         an.setVisible(true);
         jDEscritorio.add(an);
         jDEscritorio.moveToFront(an);
