@@ -21,12 +21,11 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
      * Creates new form GestionMaterias
      */
     private MateriaData materiaD;
+
     public GestionMaterias(MateriaData materiaD) {
-        this.materiaD=materiaD;
+        this.materiaD = materiaD;
         initComponents();
     }
-
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -184,27 +183,27 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
     private void jBGuardarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarMateriaActionPerformed
         // TODO add your handling code here:
         //int codigo= Integer.parseInt(jTCodigoDeMateria.getText());
-        Materia mat=null;
-        String nombre= jTMateria.getText();
-        int anio=Integer.parseInt(jTAnio.getText());
+        String nombre = jTMateria.getText();
+        int anio = Integer.parseInt(jTAnio.getText());
         boolean estado = jREstadoMateria.isSelected();
+        materiaD.guardarMateria(new Materia(nombre, anio, estado));
+        Materia mat=null;
         materiaD.guardarMateria(mat=new Materia(nombre,anio,estado));
        
-        
     }//GEN-LAST:event_jBGuardarMateriaActionPerformed
 
     private void jBLimpiarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarMateriaActionPerformed
-    jTCodigoDeMateria.setText("");
-    jTMateria.setText("");
-    jTAnio.setText("");
-    jREstadoMateria.setSelected(false);
-    
+        jTCodigoDeMateria.setText("");
+        jTMateria.setText("");
+        jTAnio.setText("");
+        jREstadoMateria.setSelected(false);
+
     }//GEN-LAST:event_jBLimpiarMateriaActionPerformed
 
     private void jTCodigoDeMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCodigoDeMateriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTCodigoDeMateriaActionPerformed
- 
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscarMateria;
