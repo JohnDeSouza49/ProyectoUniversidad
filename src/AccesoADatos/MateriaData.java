@@ -126,5 +126,6 @@ public void modificarMateria(Materia mat) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno " + ex.getMessage());
         }
     }
+
 }
 
