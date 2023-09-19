@@ -3,7 +3,7 @@ package Entidades;
 public class Inscripcion {
 
     private int idInscripto;
-    private int nota;
+    private double nota;
     private Alumno alumno;
     private Materia materia;
 
@@ -14,13 +14,17 @@ public class Inscripcion {
         this.materia = materia;
     }
 
-    public Inscripcion(int nota, Alumno alumno, Materia materia) {
+    public Inscripcion(double nota, Alumno alumno, Materia materia) {
         this.nota = nota;
         this.alumno = alumno;
         this.materia = materia;
     }
 
     public Inscripcion() {
+    }
+
+    public Inscripcion(int idInscripto, double nota, String materia) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getIdInscripto() {
@@ -32,10 +36,10 @@ public class Inscripcion {
     }
 
     public int getNota() {
-        return nota;
+        return  (int) nota;
     }
 
-    public void setNota(int nota) {
+    public void setNota(double nota) {
         this.nota = nota;
     }
 
