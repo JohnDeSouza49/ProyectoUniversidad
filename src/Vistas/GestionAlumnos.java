@@ -236,7 +236,7 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
     jTDni.setText("");
     jTApellido.setText("");
     jTNombre.setText("");
-    jREstado.setSelected(false); 
+    jREstado.setSelected(true); 
     jDFechaNacimiento.setDate(null);
     
     
