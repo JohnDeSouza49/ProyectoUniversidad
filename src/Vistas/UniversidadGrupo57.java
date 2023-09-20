@@ -189,7 +189,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
         // TODO add your handling code here:
         jDEscritorio.removeAll();
         jDEscritorio.repaint();
-        ActualizacionDeNotas an = new ActualizacionDeNotas(alumnoD);
+        ActualizacionDeNotas an = new ActualizacionDeNotas(alumnoD,insD);
         an.setVisible(true);
         jDEscritorio.add(an);
         jDEscritorio.moveToFront(an);

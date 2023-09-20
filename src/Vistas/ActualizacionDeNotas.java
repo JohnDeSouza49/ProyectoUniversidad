@@ -8,6 +8,8 @@ import AccesoADatos.AlumnoData;
 import AccesoADatos.InscripcionData;
 import Entidades.Alumno;
 import Entidades.Materia;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,7 +18,9 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
     private DefaultComboBoxModel cbmodelo= null;
     private  DefaultTableModel modeloNotas = new DefaultTableModel();
     private AlumnoData ad;
-    public ActualizacionDeNotas(AlumnoData ad ) {
+    private InscripcionData id;
+    public ActualizacionDeNotas(AlumnoData ad, InscripcionData id ) {
+        this.id=id;
         this.ad=ad;
         initComponents();
         armarEncabezado();
@@ -133,6 +137,20 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCBAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBAlumnoActionPerformed
+         Alumno alumno= (Alumno) jCBAlumno.getSelectedItem();
+         borrarFilas();
+         int idAlumno= alumno.getIdAlumno();
+         List<Materia> mCursadas= new ArrayList<>();
+         mCursadas= id.obtenerMateriasCursadas(idAlumno);
+         if(alumno!=null){
+             for(Materia m:mCursadas){
+             modeloNotas.addRow(new Object[]{
+                m.getIdMateria(),
+                 m.getNombre(),
+                
+             });
+             }
+         }
          
     }//GEN-LAST:event_jCBAlumnoActionPerformed
 
@@ -171,6 +189,12 @@ private void llenarCB(){
      for(Alumno aux:ad.listarAlumnos())           
       cbmodelo.addElement(aux);
             
+}
+private void borrarFilas(){
+    int filas=jTNotaMateria.getRowCount()-1;
+    for(int f=filas;f>=0;f--){
+        modeloNotas.removeRow(f);
+    }
 }
       
 }

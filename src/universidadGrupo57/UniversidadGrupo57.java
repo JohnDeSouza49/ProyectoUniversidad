@@ -57,6 +57,6 @@ public class UniversidadGrupo57 {
        InscripcionData insc = new InscripcionData();
         //System.out.println(insc.obtenerInscripcionesPorAlumno(8));
         //System.out.println(insc.obtenerInscripciones());
-        System.out.println(insc.obtenerMateriasCursadas(6));
+        System.out.println(insc.obtenerMateriasCursadas(8));
     }
 }
