@@ -86,7 +86,7 @@ public class InscripcionData {
             int idAlumno = rs.getInt("id_alumno");
             int idMateria = rs.getInt("id_materia");  
             Alumno alu = aluData.buscarAlumno(idAlumno);
-            Materia mat =matData.buscarMateria(idMateria);
+            Materia mat = matData.buscarMateria(idMateria);
             
             insc.setAlumno(alu);
             insc.setMateria(mat);
