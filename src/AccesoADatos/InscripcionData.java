@@ -37,7 +37,7 @@ public class InscripcionData {
 
     }
 
-    public List<Inscripcion> obtenerInscripciones() {
+   /* public List<Inscripcion> obtenerInscripciones() {
 
         List<Inscripcion> inscripciones = new ArrayList<>();
         String sql = "SELECT * FROM inscripcion";
@@ -52,10 +52,13 @@ public class InscripcionData {
                 insc.setIdInscripto(rs.getInt("id_inscripto"));
                 insc.setNota(rs.getDouble("nota"));
                 int alumno=rs.getInt("id_alumno");
-               int materia = rs.getInt("id_materia");   
+               int materia = rs.getInt("id_materia");  
+                Alumno alu = buscarAlumno(idAlumno);
+                Materia mat = buscarMateria(idMateria);
                 insc.setAlumno(alu);
                 insc.setMateria(mat);
                 inscripciones.add(insc);
+                
             }
         } catch (SQLException e) {
            JOptionPane.showMessageDialog(null, "Error al obtener la lista" + e.getMessage());
@@ -64,7 +67,38 @@ public class InscripcionData {
         return inscripciones;
         
        
+    }*/
+    public List<Inscripcion> obtenerInscripciones() {
+    List<Inscripcion> inscripciones = new ArrayList<>();
+    String sql = "SELECT * FROM inscripcion";
+    Inscripcion insc = null;
+    
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        
+        while (rs.next()) {
+            AlumnoData aluData = new AlumnoData();
+            MateriaData matData = new MateriaData();
+            insc = new Inscripcion();
+            insc.setIdInscripto(rs.getInt("id_inscripto"));
+            insc.setNota(rs.getDouble("nota"));
+            int idAlumno = rs.getInt("id_alumno");
+            int idMateria = rs.getInt("id_materia");  
+            Alumno alu = aluData.buscarAlumno(idAlumno);
+            Materia mat =matData.buscarMateria(idMateria);
+            
+            insc.setAlumno(alu);
+            insc.setMateria(mat);
+            inscripciones.add(insc);
+        }
+    } catch (SQLException e) {
+       JOptionPane.showMessageDialog(null, "Error al obtener la lista" + e.getMessage());
     }
+
+    return inscripciones;
+}
+
 
     public List<Inscripcion> obtenerInscripcionesPorAlumno(int id) {
 
