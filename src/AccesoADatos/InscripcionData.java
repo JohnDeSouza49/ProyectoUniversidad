@@ -135,7 +135,25 @@ public class InscripcionData {
     public List<Materia> obtenerMateriasCursadas(int id) {
 
         List<Materia> materiasCursadas = new ArrayList<>();
+String sql="SELECT inscripcion.id_materia, nombre, año from inscripcion, materia where inscripcion.id_materia=materia.id_materia and inscripcion.id_alumno=?";
+PreparedStatement ps=null;
+Materia m= null;
+        try {
+            ps=con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs= ps.executeQuery();
+            while(rs.next()){
+                m= new Materia();
+                m.setIdMateria(rs.getInt("id_materia"));
+                m.setNombre(rs.getString("nombre"));
+                m.setAnio(rs.getInt("año"));
+                materiasCursadas.add(m);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
+         
         return materiasCursadas;
     }
 
