@@ -11,8 +11,8 @@ import javax.swing.JOptionPane;
 public class InscripcionData {
 
     private Connection con;
-    private MateriaData matData;
-    private AlumnoData aluData;
+    private MateriaData matData= new MateriaData();
+    private AlumnoData aluData= new AlumnoData();
     private Inscripcion inscripcion;
     private Alumno alumno;
     private Materia materia;
@@ -78,8 +78,6 @@ public class InscripcionData {
         ResultSet rs = ps.executeQuery();
         
         while (rs.next()) {
-            AlumnoData aluData = new AlumnoData();
-            MateriaData matData = new MateriaData();
             insc = new Inscripcion();
             insc.setIdInscripto(rs.getInt("id_inscripto"));
             insc.setNota(rs.getDouble("nota"));
@@ -101,12 +99,39 @@ public class InscripcionData {
 
 
     public List<Inscripcion> obtenerInscripcionesPorAlumno(int id) {
-
         List<Inscripcion> inscPorId = new ArrayList<>();
+        String sql="SELECT * from inscripcion where id_alumno=?";
+        Inscripcion insc=null;
+        PreparedStatement ps=null;
+        try {
+            ps=con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs= ps.executeQuery();
+            while(rs.next()){
+            insc = new Inscripcion();
+            insc.setIdInscripto((id));
+            insc.setNota(rs.getDouble("nota"));
+            int idAlumno = rs.getInt("id_alumno");
+            int idMateria = rs.getInt("id_materia");  
+            Alumno alu = aluData.buscarAlumno(idAlumno);
+            Materia mat =matData.buscarMateria(idMateria);
+            insc.setAlumno(alu);
+            insc.setMateria(mat);
+            inscPorId.add(insc);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+       
+           
+           
+      
 
         return inscPorId;
     }
-
+    
+    
     public List<Materia> obtenerMateriasCursadas(int id) {
 
         List<Materia> materiasCursadas = new ArrayList<>();

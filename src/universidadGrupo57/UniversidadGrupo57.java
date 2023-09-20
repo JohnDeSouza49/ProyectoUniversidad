@@ -55,6 +55,7 @@ public class UniversidadGrupo57 {
             Logger.getLogger(UniversidadGrupo57.class.getName()).log(Level.SEVERE, null, ex);
         }*/
        InscripcionData insc = new InscripcionData();
-        System.out.println(insc.obtenerInscripciones());
+        System.out.println(insc.obtenerInscripcionesPorAlumno(6));
+        //System.out.println(insc.obtenerInscripciones());
     }
 }
