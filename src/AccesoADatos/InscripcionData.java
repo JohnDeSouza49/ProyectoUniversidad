@@ -113,7 +113,7 @@ public class InscripcionData {
                 materiasCursadas.add(m);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, "Error al conectarse a la tabla inscripcion");
         }
 
         return materiasCursadas;
@@ -123,8 +123,28 @@ public class InscripcionData {
 
         List<Materia> materiasNoCursadas = new ArrayList<>();
         
-        String sql = "SELECT ";
-        
+        String sql = "SELECT * FROM  materia WHERE estado=1 And id_materia not in"
+                + "(SELECT id_materia FROM inscripcion WHERE id_alumno=?)";
+  
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                
+                Materia mat= new Materia();
+                mat.setIdMateria(rs.getInt("id_Materia"));
+                mat.setNombre(rs.getString("nombre"));
+                mat.setAnio(rs.getInt("año"));
+                materiasNoCursadas.add(mat);        
+            }
+            
+            ps.close();
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al conectarse a la tabla materia");
+        }
         
 
         return materiasNoCursadas;

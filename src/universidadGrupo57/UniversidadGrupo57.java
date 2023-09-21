@@ -68,5 +68,12 @@ public class UniversidadGrupo57 {
             System.out.println("id: "+in.getIdInscripto()+" - nota: "+ in.getNota() + " - idAlumno: "+
                     in.getAlumno().getIdAlumno()+ " - idMateria: " + in.getMateria().getIdMateria());
         }*/
+       
+       
+       for(Materia in:insc.obtenerMateriasNoCursadas(11)){
+           
+           System.out.println("idMateria: " + in.getIdMateria()+" - materia: " + in.getNombre()
+           + " - anio: " + in.getAnio());
+       }
     }
 }
