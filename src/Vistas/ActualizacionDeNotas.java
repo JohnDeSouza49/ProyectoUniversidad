@@ -17,7 +17,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
     private DefaultComboBoxModel cbmodelo= null;
-    private  DefaultTableModel modeloNotas = new DefaultTableModel();
+    private  DefaultTableModel modeloNotas = new DefaultTableModel(){
+        public boolean isCellEditable(int f, int c){
+        return c==2;
+    }
+    };
+            
     private AlumnoData ad;
     private InscripcionData id;
     public ActualizacionDeNotas(AlumnoData ad, InscripcionData id ) {
@@ -26,6 +31,8 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
         initComponents();
         armarEncabezado();
         llenarCB();
+        
+        
     }
 
     /**
@@ -160,10 +167,11 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
 
     private void jBGuardarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarNotaActionPerformed
        // Crear una instancia de InscripcionData
+
         InscripcionData nota2= new InscripcionData();
          // Llamar al método de InscripcionData        
         nota2.actualizarNota(WIDTH, WIDTH, WIDTH);
-         
+
     }//GEN-LAST:event_jBGuardarNotaActionPerformed
 
     private void jBSalirdeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirdeNotasActionPerformed
@@ -201,5 +209,6 @@ private void borrarFilas(){
         modeloNotas.removeRow(f);
     }
 }
+ 
       
 }
