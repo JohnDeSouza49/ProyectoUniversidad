@@ -59,6 +59,8 @@ public class UniversidadGrupo57 {
         //System.out.println(insc.obtenerInscripciones());
         //System.out.println(insc.obtenerMateriasCursadas(8));
         
-        insc.actualizarNota(11, 5, 9);
+        //insc.actualizarNota(11, 5, 9);
+        
+        insc.borrarInscripcionMaterialAlumno(1, 5);
     }
 }

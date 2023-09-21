@@ -163,8 +163,29 @@ Materia m= null;
 
         return materiasNoCursadas;
     }
+    
+    
 
     public void borrarInscripcionMaterialAlumno(int idAlumno, int idMateria) {
+        
+        
+        String sql = "DELETE FROM inscripcion WHERE id_alumno = ? AND id_materia = ?";
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1,idAlumno);
+            ps.setInt(2, idMateria);
+            int rs = ps.executeUpdate();
+            
+            if(rs==1){
+                JOptionPane.showMessageDialog(null, "Inscripcion borrada con èxito");
+            }
+            
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
+        }
 
     }
 
