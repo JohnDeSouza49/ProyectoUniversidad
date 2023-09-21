@@ -15,7 +15,7 @@ public class InscripcionData {
     private AlumnoData aluData= new AlumnoData();
     private Inscripcion inscripcion;
     private Alumno alumno;
-    private Materia materia;
+    private Materia materia;   
     public InscripcionData() {
 
         con = Conexion.getConexion();
@@ -169,6 +169,30 @@ Materia m= null;
     }
 
     public void actualizarNota(int idAlumno, int idMateria, double nota) {
+        
+        String sql = "UPDATE inscripcion SET  nota=? WHERE id_alumno = ? AND id_materia= ? ";
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setDouble(1, nota);
+            ps.setInt(2, idAlumno);
+            ps.setInt(3, idMateria);
+            
+            int rs = ps.executeUpdate();
+            
+            if(rs == 1){
+                
+                JOptionPane.showMessageDialog(null, "Nota modificada con éxito");
+                
+            }
+            ps.close();
+        
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
+        }
+        
+        
 
     }
 
