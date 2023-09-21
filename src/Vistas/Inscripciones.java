@@ -57,6 +57,11 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         });
 
         jRBMateriasNoInscripto.setText("Materias no inscriptas");
+        jRBMateriasNoInscripto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRBMateriasNoInscriptoActionPerformed(evt);
+            }
+        });
 
         jTMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,6 +166,10 @@ public class Inscripciones extends javax.swing.JInternalFrame {
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
          this.dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
+
+    private void jRBMateriasNoInscriptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBMateriasNoInscriptoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRBMateriasNoInscriptoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

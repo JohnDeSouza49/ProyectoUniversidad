@@ -158,7 +158,7 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
        // Crear una instancia de InscripcionData
         InscripcionData nota2= new InscripcionData();
          // Llamar al método de InscripcionData        
-        //nota2.actualizarNota();
+        nota2.actualizarNota(WIDTH, WIDTH, WIDTH);
     }//GEN-LAST:event_jBGuardarNotaActionPerformed
 
     private void jBSalirdeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirdeNotasActionPerformed
