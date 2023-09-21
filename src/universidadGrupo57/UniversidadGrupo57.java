@@ -54,7 +54,7 @@ public class UniversidadGrupo57 {
        /* } catch (SQLException ex) {
             Logger.getLogger(UniversidadGrupo57.class.getName()).log(Level.SEVERE, null, ex);
         }*/
-       InscripcionData insc = new InscripcionData();
+       //InscripcionData insc = new InscripcionData();
         //System.out.println(insc.obtenerInscripcionesPorAlumno(8));
         //System.out.println(insc.obtenerInscripciones());
         //System.out.println(insc.obtenerMateriasCursadas(8));
@@ -70,10 +70,10 @@ public class UniversidadGrupo57 {
         }*/
        
        
-       for(Alumno al:insc.obtenerAlumnosXMateria(5)){
+       /*for(Alumno al:insc.obtenerAlumnosXMateria(5)){
            
            System.out.println("idAlumno: " + al.getIdAlumno()+" - apellido: " + al.getApellido()
            + " - nombre: " + al.getNombre());
-       }
+       }*/
     }
 }

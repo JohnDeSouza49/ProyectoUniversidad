@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -219,13 +220,40 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarAlumnoActionPerformed
+        
+      
+           
+        //int dni = Integer.parseInt(jTDni.getText());
+        String apellido = jTApellido.getText().toString();
+        String nombre = jTNombre.getText().toString();
+        //LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+       // boolean estado = jREstado.isSelected();
+        
+       if( apellido.isEmpty()||nombre.isEmpty()){
+           JOptionPane.showMessageDialog(null, "Deves completar todos los campos");
+
+          return;
+           
+       } try{ 
+           
         int dni = Integer.parseInt(jTDni.getText());
-        String apellido = jTApellido.getText();
-        String nombre = jTNombre.getText();
-        LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();      
         boolean estado = jREstado.isSelected();
         alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
-        // dataManager.cargarDatos(nombre, edad, direccion);*/
+        
+       }catch(NumberFormatException e){
+          JOptionPane.showMessageDialog(null, "datos incorrectos");
+          
+          jTDni.setText("");
+          jTApellido.setText("");
+          jTNombre.setText("");
+         
+          
+          
+       }catch(NullPointerException ex ){
+           JOptionPane.showMessageDialog(null, "Deves completar todos los campos");
+       }
+        
     }//GEN-LAST:event_jBGuardarAlumnoActionPerformed
 
     private void jBBuscarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarAlumnoActionPerformed
