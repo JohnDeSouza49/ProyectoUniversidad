@@ -61,6 +61,12 @@ public class UniversidadGrupo57 {
         
         //insc.actualizarNota(11, 5, 9);
         
-        insc.borrarInscripcionMaterialAlumno(1, 5);
+        //insc.borrarInscripcionMaterialAlumno(1, 5);
+        
+       /* for(Inscripcion in:insc.obtenerInscripciones()){
+            
+            System.out.println("id: "+in.getIdInscripto()+" - nota: "+ in.getNota() + " - idAlumno: "+
+                    in.getAlumno().getIdAlumno()+ " - idMateria: " + in.getMateria().getIdMateria());
+        }*/
     }
 }
