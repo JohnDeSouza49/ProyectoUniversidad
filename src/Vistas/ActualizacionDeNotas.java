@@ -7,6 +7,7 @@ package Vistas;
 import AccesoADatos.AlumnoData;
 import AccesoADatos.InscripcionData;
 import Entidades.Alumno;
+import Entidades.Inscripcion;
 import Entidades.Materia;
 import java.util.ArrayList;
 import java.util.List;
@@ -142,11 +143,14 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
          int idAlumno= alumno.getIdAlumno();
          List<Materia> mCursadas= new ArrayList<>();
          mCursadas= id.obtenerMateriasCursadas(idAlumno);
+         List<Inscripcion>lista= new ArrayList<>();
+         lista= id.obtenerInscripcionesPorAlumno(idAlumno);     
          if(alumno!=null){
-             for(Materia m:mCursadas){
+             for(Inscripcion m:lista){
              modeloNotas.addRow(new Object[]{
-                m.getIdMateria(),
-                 m.getNombre(),
+                m.getMateria().getIdMateria(),
+                m.getMateria().getNombre(),
+                m.getNota()
                 
              });
              }
@@ -159,6 +163,7 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
         InscripcionData nota2= new InscripcionData();
          // Llamar al método de InscripcionData        
         nota2.actualizarNota(WIDTH, WIDTH, WIDTH);
+         
     }//GEN-LAST:event_jBGuardarNotaActionPerformed
 
     private void jBSalirdeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirdeNotasActionPerformed
