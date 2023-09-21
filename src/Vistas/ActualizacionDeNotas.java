@@ -12,6 +12,7 @@ import Entidades.Materia;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -167,9 +168,17 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
 
     private void jBGuardarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarNotaActionPerformed
        // Crear una instancia de InscripcionData
-          
+        Alumno a = (Alumno)jCBAlumno.getSelectedItem();
+        int idAlumno = a.getIdAlumno();
+        int fila= jTNotaMateria.getSelectedRow();
+         for (int i = 1; i < jTNotaMateria.getRowCount(); i++) {
+            int idMateria = (int) jTNotaMateria.getValueAt(i , 0); // Obtener el id de la materia
+            double nota = (double) jTNotaMateria.getValueAt(i, 2); // Obtener la nueva nota
+            id.actualizarNota( idAlumno, idMateria, nota); 
+             JOptionPane.showMessageDialog(null,"La Nota se modifico correctamente");
+         }
          // Llamar al método de InscripcionData 
-         
+        
         //nota2.actualizarNota();
     }//GEN-LAST:event_jBGuardarNotaActionPerformed
 
