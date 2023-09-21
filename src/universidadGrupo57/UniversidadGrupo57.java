@@ -70,10 +70,10 @@ public class UniversidadGrupo57 {
         }*/
        
        
-       for(Materia in:insc.obtenerMateriasNoCursadas(11)){
+       for(Alumno al:insc.obtenerAlumnosXMateria(5)){
            
-           System.out.println("idMateria: " + in.getIdMateria()+" - materia: " + in.getNombre()
-           + " - anio: " + in.getAnio());
+           System.out.println("idAlumno: " + al.getIdAlumno()+" - apellido: " + al.getApellido()
+           + " - nombre: " + al.getNombre());
        }
     }
 }
