@@ -237,6 +237,10 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
        } try{ 
            
         int dni = Integer.parseInt(jTDni.getText());
+        if(dni<1000000||dni>99999999){
+            JOptionPane.showMessageDialog(null, "ingresa un DNI válido");
+            return;
+        }
         LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();      
         boolean estado = jREstado.isSelected();
         alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
