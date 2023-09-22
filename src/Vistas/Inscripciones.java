@@ -211,7 +211,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         idA= a.getIdAlumno(); 
         lista= id.obtenerMateriasNoCursadas(idA);
         listaNo=id.obtenerMateriasCursadas(idA);
-        boolean bandera= jRBMateriasNoInscripto.isSelected();
+        
         if(jRBMateriasNoInscripto.isSelected()==true &&jRBMateriasInscripto.isSelected()==true ){
             JOptionPane.showMessageDialog(null, "Seleccione una sola opcion");
         }
@@ -258,7 +258,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         }
         JOptionPane.showMessageDialog(null, "Inscripcion guardada");
         
-       // id.guardarInscripcion(nueva);
+      
     }//GEN-LAST:event_jBInscribirActionPerformed
 
 
