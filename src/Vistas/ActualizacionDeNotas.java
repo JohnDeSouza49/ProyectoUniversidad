@@ -173,7 +173,9 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
         int fila= jTNotaMateria.getSelectedRow();
          for (int i = 1; i < jTNotaMateria.getRowCount(); i++) {
             int idMateria = (int) jTNotaMateria.getValueAt(i , 0); // Obtener el id de la materia
-            double nota = (double) jTNotaMateria.getValueAt(i, 2); // Obtener la nueva nota
+           int valorEntero = (int) jTNotaMateria.getValueAt(i, 2);
+           double nota = (double) valorEntero;    //En la BD figura entero, es double.       
+          //double nota = (double) jTNotaMateria.getValueAt(i, 2); // Obtener la nueva nota
             id.actualizarNota( idAlumno, idMateria, nota); 
              JOptionPane.showMessageDialog(null,"La Nota se modifico correctamente");
          }
