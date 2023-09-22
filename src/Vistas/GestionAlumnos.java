@@ -230,7 +230,7 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
        // boolean estado = jREstado.isSelected();
         
        if( apellido.isEmpty()||nombre.isEmpty()){
-           JOptionPane.showMessageDialog(null, "Deves completar todos los campos");
+           JOptionPane.showMessageDialog(null, "Debes completar todos los campos");
 
           return;
            
@@ -244,7 +244,11 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();      
         boolean estado = jREstado.isSelected();
         alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
-        
+        jTDni.setText("");
+    jTApellido.setText("");
+    jTNombre.setText("");
+    jREstado.setSelected(true); 
+    jDFechaNacimiento.setDate(null);
        }catch(NumberFormatException e){
           JOptionPane.showMessageDialog(null, "datos incorrectos");
           
@@ -255,7 +259,7 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
           
           
        }catch(NullPointerException ex ){
-           JOptionPane.showMessageDialog(null, "Deves completar todos los campos");
+           JOptionPane.showMessageDialog(null, "Debes completar todos los campos");
        }
         
     }//GEN-LAST:event_jBGuardarAlumnoActionPerformed
