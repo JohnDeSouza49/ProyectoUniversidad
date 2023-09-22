@@ -14,8 +14,7 @@ public class InscripcionData {
     private MateriaData matData = new MateriaData();
     private AlumnoData aluData = new AlumnoData();
     private Inscripcion inscripcion;
-    //private Alumno alumno;
-   // private Materia materia;
+   
 
     public InscripcionData() {
 
@@ -51,8 +50,7 @@ public class InscripcionData {
                 insc = new Inscripcion();
                 insc.setIdInscripto(rs.getInt("id_inscripto"));
                 insc.setNota(rs.getDouble("nota"));
-                //int idAlumno = rs.getInt("id_alumno");
-                //int idMateria = rs.getInt("id_materia");
+               
                 Alumno alu = aluData.buscarAlumno(rs.getInt("id_alumno"));
                 Materia mat = matData.buscarMateria(rs.getInt("id_materia"));
 

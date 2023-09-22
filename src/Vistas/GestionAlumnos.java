@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Vistas;
 
 import AccesoADatos.AlumnoData;
 import Entidades.Alumno;
-import com.toedter.calendar.JDateChooser;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDate;
 import java.time.ZoneId;
 import javax.swing.JOptionPane;
@@ -226,8 +220,7 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         //int dni = Integer.parseInt(jTDni.getText());
         String apellido = jTApellido.getText().toString();
         String nombre = jTNombre.getText().toString();
-        //LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-       // boolean estado = jREstado.isSelected();
+      
         
        if( apellido.isEmpty()||nombre.isEmpty()){
            JOptionPane.showMessageDialog(null, "Deves completar todos los campos");

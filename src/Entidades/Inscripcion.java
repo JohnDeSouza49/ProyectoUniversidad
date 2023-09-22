@@ -24,7 +24,7 @@ public class Inscripcion {
     }
 
     public Inscripcion(int idInscripto, double nota, String materia) {
-         //To change body of generated methods, choose Tools | Templates.
+         
     }
 
     public int getIdInscripto() {
