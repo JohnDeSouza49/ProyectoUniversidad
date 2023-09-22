@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
-    //public static TreeSet<Materia> listaMaterias= new TreeSet<>();
+  
     private DefaultTableModel modeloMateria = new DefaultTableModel();
     private DefaultComboBoxModel modelito= null;
    private MateriaData materiaD;
