@@ -77,5 +77,6 @@ public class UniversidadGrupo57 {
        }*/
        InscripcionData id= new InscripcionData();
         System.out.println(id.obtenerInscripcionesPorAlumno(13));
+        id.actualizarNota(1, 1, 6);
     }
 }

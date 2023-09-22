@@ -194,7 +194,7 @@ public class InscripcionData {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion");
-        }
+        }JOptionPane.showMessageDialog(null,"Ejecutando método actualizarNota");
 
     }
 

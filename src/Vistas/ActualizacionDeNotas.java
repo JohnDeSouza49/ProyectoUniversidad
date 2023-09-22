@@ -17,8 +17,12 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
     private DefaultComboBoxModel cbmodelo= null;
     private  DefaultTableModel modeloNotas = new DefaultTableModel(){
         public boolean isCellEditable(int f, int c){
-        return c==2;
-    }
+        if(c ==2){
+            return true;
+            
+    }else {return false;
+        }
+        }
     };
             
     private AlumnoData ad;
@@ -164,14 +168,14 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
         Alumno a = (Alumno)jCBAlumno.getSelectedItem();
         int idAlumno = a.getIdAlumno();
         int fila= jTNotaMateria.getSelectedRow();
-         for (int i = 1; i < jTNotaMateria.getRowCount(); i++) {
-            int idMateria = (int) jTNotaMateria.getValueAt(i , 0); 
-           int valorEntero = (int) jTNotaMateria.getValueAt(i, 2);
-           double nota = (double) valorEntero;    //En la BD figura entero, es double.       
+         //for (int i = 0; i <= jTNotaMateria.getRowCount(); i++) {
+            int idMateria = (int) jTNotaMateria.getValueAt(fila,0); 
+          double nota = Double.parseDouble(jTNotaMateria.getValueAt(fila, 2).toString()) ;
+           // parseo el double        
           
             id.actualizarNota( idAlumno, idMateria, nota); 
              
-         }
+         //}
          JOptionPane.showMessageDialog(null,"La Nota se modifico correctamente");
         
     }//GEN-LAST:event_jBGuardarNotaActionPerformed
