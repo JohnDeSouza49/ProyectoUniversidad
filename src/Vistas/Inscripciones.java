@@ -198,15 +198,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         borrarFilas();
         idA= a.getIdAlumno(); 
         lista= id.obtenerMateriasNoCursadas(idA);
-    }//GEN-LAST:event_jCBAlumnoActionPerformed
-
-    private void jRBMateriasNoInscriptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBMateriasNoInscriptoActionPerformed
-        // TODO add your handling code here:
-        Alumno a= (Alumno)jCBAlumno.getSelectedItem();
-        int idA=0;
-        idA= a.getIdAlumno(); 
-        lista= id.obtenerMateriasNoCursadas(idA);
-        boolean bandera= jRBMateriasNoInscripto.isSelected()==true;
+        boolean bandera= jRBMateriasNoInscripto.isSelected();
         if(jRBMateriasNoInscripto.isSelected()==true &&jRBMateriasInscripto.isSelected()==false ){
         for(Materia m:lista){
              modelo.addRow(new Object[]{
@@ -214,9 +206,12 @@ public class Inscripciones extends javax.swing.JInternalFrame {
                  m.getNombre(),
                  m.getAnio()
                 });
-             JOptionPane.showMessageDialog(null, bandera);
+    }//GEN-LAST:event_jCBAlumnoActionPerformed
         }
-        }
+    }
+    private void jRBMateriasNoInscriptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBMateriasNoInscriptoActionPerformed
+        // TODO add your handling code here:
+    
     }//GEN-LAST:event_jRBMateriasNoInscriptoActionPerformed
 
 
