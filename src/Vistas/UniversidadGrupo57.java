@@ -217,7 +217,7 @@ public class UniversidadGrupo57 extends javax.swing.JFrame {
     private void MiMenuInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MiMenuInscripcionesActionPerformed
         jDEscritorio.removeAll();
         jDEscritorio.repaint();
-        Inscripciones mi = new Inscripciones();
+        Inscripciones mi = new Inscripciones(alumnoD,insD);
         mi.setVisible(true);
         jDEscritorio.add(mi);
         jDEscritorio.moveToFront(mi); // TODO add your handling code here:
