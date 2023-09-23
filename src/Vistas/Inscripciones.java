@@ -10,8 +10,11 @@ import AccesoADatos.MateriaData;
 import Entidades.Alumno;
 import Entidades.Inscripcion;
 import Entidades.Materia;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -22,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Inscripciones extends javax.swing.JInternalFrame {
     InscripcionData id;
-    MateriaData mat;
+    MateriaData mat= new MateriaData();
     AlumnoData ad;
     List<Materia> lista= new ArrayList<>();
     List<Materia> listaNo= new ArrayList<>();
@@ -105,6 +108,11 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTMaterias);
 
         jBInscribir.setText("Inscribir");
+        jBInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBInscribirActionPerformed(evt);
+            }
+        });
 
         jBAnularMateria.setText("AnularInscripcion");
 
@@ -230,6 +238,28 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     
     }//GEN-LAST:event_jRBMateriasNoInscriptoActionPerformed
+
+    private void jBInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInscribirActionPerformed
+        // TODO add your handling code here:
+         Alumno a= (Alumno)jCBAlumno.getSelectedItem();
+         int idMateria=0;
+          Materia materia=null;
+        int fila= jTMaterias.getSelectedRow();
+         for (int i = 0; i <= jTMaterias.getRowCount(); i++) {
+            idMateria = (int) jTMaterias.getValueAt(fila,0); 
+         }
+         materia=mat.buscarMateria(idMateria);
+        
+        Inscripcion nueva= new Inscripcion(0, a, materia);
+        try {
+            id.guardarInscripcion(nueva);
+        } catch (SQLException ex) {
+            Logger.getLogger(Inscripciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JOptionPane.showMessageDialog(null, "Inscripcion guardada");
+        
+       // id.guardarInscripcion(nueva);
+    }//GEN-LAST:event_jBInscribirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
