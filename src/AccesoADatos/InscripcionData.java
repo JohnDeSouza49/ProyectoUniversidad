@@ -185,11 +185,11 @@ public class InscripcionData {
 
             int rs = ps.executeUpdate();
 
-            if (rs == 1) {
+            //if (rs == 1) {
 
-                JOptionPane.showMessageDialog(null, "Nota modificada con éxito");
+              //  JOptionPane.showMessageDialog(null, "Nota modificada con éxito");
 
-            }
+            //}
             ps.close();
 
         } catch (SQLException ex) {

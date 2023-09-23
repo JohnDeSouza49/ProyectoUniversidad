@@ -12,6 +12,7 @@ import Entidades.Materia;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -175,8 +176,11 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
            // parseo el double        
           
             id.actualizarNota( idAlumno, idMateria, nota); 
+            
     }//GEN-LAST:event_jBGuardarNotaActionPerformed
+    JOptionPane.showMessageDialog(null, "nota modificada");
     }
+    
     private void jBSalirdeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirdeNotasActionPerformed
         // TODO add your handling code here:
         this.dispose();
