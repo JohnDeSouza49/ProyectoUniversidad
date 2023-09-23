@@ -13,6 +13,7 @@ import Entidades.Materia;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -203,9 +204,9 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         Alumno a= (Alumno)jCBAlumno.getSelectedItem();
         int idA=0;
-        borrarFilas();
         idA= a.getIdAlumno(); 
         lista= id.obtenerMateriasNoCursadas(idA);
+        boolean bandera= jRBMateriasNoInscripto.isSelected()==true;
         if(jRBMateriasNoInscripto.isSelected()==true &&jRBMateriasInscripto.isSelected()==false ){
         for(Materia m:lista){
              modelo.addRow(new Object[]{
@@ -213,6 +214,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
                  m.getNombre(),
                  m.getAnio()
                 });
+             JOptionPane.showMessageDialog(null, bandera);
         }
         }
     }//GEN-LAST:event_jRBMateriasNoInscriptoActionPerformed

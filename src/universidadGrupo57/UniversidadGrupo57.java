@@ -75,7 +75,7 @@ public class UniversidadGrupo57 {
            System.out.println("idAlumno: " + al.getIdAlumno()+" - apellido: " + al.getApellido()
            + " - nombre: " + al.getNombre());
        }*/
-       InscripcionData id= new InscripcionData();
-        System.out.println(id.obtenerInscripcionesPorAlumno(13));
+       //InscripcionData id= new InscripcionData();
+      //  System.out.println(id.obtenerInscripcionesPorAlumno(13));
     }
 }

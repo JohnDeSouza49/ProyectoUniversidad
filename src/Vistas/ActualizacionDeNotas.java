@@ -166,13 +166,17 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jCBAlumnoActionPerformed
 
     private void jBGuardarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarNotaActionPerformed
-       // Crear una instancia de InscripcionData
+       Alumno a = (Alumno)jCBAlumno.getSelectedItem();
+        int idAlumno = a.getIdAlumno();
+        int fila= jTNotaMateria.getSelectedRow();
+        for (int i = 0; i <= jTNotaMateria.getRowCount(); i++) {
+            int idMateria = (int) jTNotaMateria.getValueAt(fila,0); 
+          double nota = Double.parseDouble(jTNotaMateria.getValueAt(fila, 2).toString()) ;
+           // parseo el double        
           
-         // Llamar al método de InscripcionData 
-         
-        //nota2.actualizarNota();
+            id.actualizarNota( idAlumno, idMateria, nota); 
     }//GEN-LAST:event_jBGuardarNotaActionPerformed
-
+    }
     private void jBSalirdeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirdeNotasActionPerformed
         // TODO add your handling code here:
         this.dispose();
