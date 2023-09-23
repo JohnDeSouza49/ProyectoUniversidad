@@ -262,6 +262,17 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
 
     private void jBBuscarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarAlumnoActionPerformed
         // TODO add your handling code here:
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_jBBuscarAlumnoActionPerformed
 
     private void jBIngresarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBIngresarAlumnoActionPerformed

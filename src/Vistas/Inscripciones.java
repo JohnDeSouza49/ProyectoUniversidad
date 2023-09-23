@@ -46,6 +46,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BotonGrupo = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -74,6 +75,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Listado de materias");
 
+        BotonGrupo.add(jRBMateriasInscripto);
         jRBMateriasInscripto.setText("Materias inscriptas");
         jRBMateriasInscripto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +83,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
             }
         });
 
+        BotonGrupo.add(jRBMateriasNoInscripto);
         jRBMateriasNoInscripto.setText("Materias no inscriptas");
         jRBMateriasNoInscripto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,6 +233,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup BotonGrupo;
     private javax.swing.JButton jBAnularMateria;
     private javax.swing.JButton jBInscribir;
     private javax.swing.JButton jBSalir;

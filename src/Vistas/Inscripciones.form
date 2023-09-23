@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="BotonGrupo">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="title" type="java.lang.String" value="Formulario de inscripcion"/>
   </Properties>
@@ -142,6 +146,9 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRBMateriasInscripto">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="BotonGrupo"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Materias inscriptas"/>
       </Properties>
       <Events>
@@ -150,6 +157,9 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRBMateriasNoInscripto">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="BotonGrupo"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Materias no inscriptas"/>
       </Properties>
       <Events>
