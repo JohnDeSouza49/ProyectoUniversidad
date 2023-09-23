@@ -264,14 +264,18 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
         
+
         
-        
-        
-        
-        
-        
-        
-        
+            int dni = Integer.parseInt(jTDni.getText());
+
+            Alumno alumno = alumnoD.buscarAlumnoPorDni(dni);
+
+            jTApellido.setText(alumno.getApellido());
+            jTNombre.setText(alumno.getNombre());
+            jREstado.setSelected(alumno.isEstado());
+
+       
+ 
         
     }//GEN-LAST:event_jBBuscarAlumnoActionPerformed
 
