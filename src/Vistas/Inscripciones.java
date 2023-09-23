@@ -25,6 +25,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
     MateriaData mat;
     AlumnoData ad;
     List<Materia> lista= new ArrayList<>();
+    List<Materia> listaNo= new ArrayList<>();
   private DefaultComboBoxModel cbmodelo= null;
     private DefaultTableModel modelo = new DefaultTableModel();
     
@@ -198,7 +199,11 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         borrarFilas();
         idA= a.getIdAlumno(); 
         lista= id.obtenerMateriasNoCursadas(idA);
+        listaNo=id.obtenerMateriasCursadas(idA);
         boolean bandera= jRBMateriasNoInscripto.isSelected();
+        if(jRBMateriasNoInscripto.isSelected()==true &&jRBMateriasInscripto.isSelected()==true ){
+            JOptionPane.showMessageDialog(null, "Seleccione una sola opcion");
+        }
         if(jRBMateriasNoInscripto.isSelected()==true &&jRBMateriasInscripto.isSelected()==false ){
         for(Materia m:lista){
              modelo.addRow(new Object[]{
@@ -208,6 +213,15 @@ public class Inscripciones extends javax.swing.JInternalFrame {
                 });
     }//GEN-LAST:event_jCBAlumnoActionPerformed
         }
+        if(jRBMateriasNoInscripto.isSelected()==false &&jRBMateriasInscripto.isSelected()==true ){
+                for(Materia m:listaNo){
+             modelo.addRow(new Object[]{
+                m.getIdMateria(),
+                 m.getNombre(),
+                 m.getAnio()
+                });
+        }
+    }
     }
     private void jRBMateriasNoInscriptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBMateriasNoInscriptoActionPerformed
         // TODO add your handling code here:
