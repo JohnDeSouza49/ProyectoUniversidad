@@ -3,6 +3,7 @@ package Vistas;
 
 import AccesoADatos.AlumnoData;
 import Entidades.Alumno;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import javax.swing.JOptionPane;
@@ -268,6 +269,9 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
             jTApellido.setText(alumno.getApellido());
             jTNombre.setText(alumno.getNombre());
             jREstado.setSelected(alumno.isEstado());
+            LocalDate fechaNac=alumno.getFechaNacimiento();
+            Date date = java.sql.Date.valueOf(fechaNac);
+            jDFechaNacimiento.setDate(date);
 
        
  
