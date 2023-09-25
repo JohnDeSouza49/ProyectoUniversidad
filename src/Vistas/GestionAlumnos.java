@@ -297,7 +297,7 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
    Alumno a = alumno.buscarAlumnoPorDni(dni);
    
    alumno.eliminarAlumno(a.getIdAlumno());
-        JOptionPane.showMessageDialog(null, "Alumno eliminado");
+       
     }//GEN-LAST:event_jBEliminarAlumnoActionPerformed
     }
 
