@@ -95,6 +95,11 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         });
 
         jBEliminarAlumno.setText("Eliminar");
+        jBEliminarAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarAlumnoActionPerformed(evt);
+            }
+        });
 
         jBGuardarAlumno.setText("Guardar");
         jBGuardarAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -293,6 +298,10 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
     
 // TODO add your handling code here:
     }//GEN-LAST:event_jBIngresarAlumnoActionPerformed
+
+    private void jBEliminarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBEliminarAlumnoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
