@@ -290,9 +290,16 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBIngresarAlumnoActionPerformed
 
     private void jBEliminarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarAlumnoActionPerformed
-        // TODO add your handling code here:
+     int dni = Integer.parseInt(jTDni.getText());
+        if (jTDni!=null){
+        
+   AlumnoData  alumno =new AlumnoData();
+   Alumno a = alumno.buscarAlumnoPorDni(dni);
+   
+   alumno.eliminarAlumno(a.getIdAlumno());
+        JOptionPane.showMessageDialog(null, "Alumno eliminado");
     }//GEN-LAST:event_jBEliminarAlumnoActionPerformed
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscarAlumno;
