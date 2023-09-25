@@ -128,7 +128,29 @@ public void modificarMateria(Materia mat) {
     }
 
                 
-    
+   public List<Materia> listaTodasLasMaterias() {
+        List<Materia> materias = new ArrayList<>();
+        Materia m = null;
+        String sql = "SELECT * FROM materia ";
+        try {
+            PreparedStatement ps = conex.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                m = new Materia();
+                m.setIdMateria(rs.getInt("id_materia"));
+                m.setNombre(rs.getString("nombre"));
+                m.setAnio(rs.getInt("año"));
+                m.setEstado(rs.getBoolean("estado"));
+                materias.add(m);
+                ps.close();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MateriaData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return materias;
+
+    }  
     
 }
 

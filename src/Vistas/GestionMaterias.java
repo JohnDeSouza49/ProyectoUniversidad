@@ -9,6 +9,7 @@ import Entidades.Materia;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -197,6 +198,14 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         int anio = Integer.parseInt(jTAnio.getText());
         boolean estado = jREstadoMateria.isSelected();
         Materia mat=null;
+        List<Materia> listaM= new ArrayList<>();
+        listaM = materiaD.listaTodasLasMaterias();
+        for (Materia materia : listaM) {
+            if(materia.getNombre()==nombre && materia.getAnio()==anio){
+                JOptionPane.showMessageDialog(null,"todo bien");
+            }
+            
+        }
         materiaD.guardarMateria(mat=new Materia(nombre,anio,estado));
         jTMateria.setText("");
         jTAnio.setText("");
