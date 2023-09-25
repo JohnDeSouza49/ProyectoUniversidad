@@ -202,6 +202,17 @@ public class Inscripciones extends javax.swing.JInternalFrame {
 
     private void jRBMateriasInscriptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBMateriasInscriptoActionPerformed
         // TODO add your handling code here:
+         borrarFilas();
+        if(jRBMateriasNoInscripto.isSelected()==false &&jRBMateriasInscripto.isSelected()==true ){
+                for(Materia m:listaNo){
+             modelo.addRow(new Object[]{
+                m.getIdMateria(),
+                 m.getNombre(),
+                 m.getAnio()
+                });
+                }
+        }
+        
     }//GEN-LAST:event_jRBMateriasInscriptoActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
@@ -241,7 +252,16 @@ public class Inscripciones extends javax.swing.JInternalFrame {
     }
     private void jRBMateriasNoInscriptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBMateriasNoInscriptoActionPerformed
         // TODO add your handling code here:
-    
+        borrarFilas();
+      if(jRBMateriasNoInscripto.isSelected()==true &&jRBMateriasInscripto.isSelected()==false ){
+        for(Materia m:lista){
+             modelo.addRow(new Object[]{
+                m.getIdMateria(),
+                 m.getNombre(),
+                 m.getAnio()
+                });
+        }
+      }
     }//GEN-LAST:event_jRBMateriasNoInscriptoActionPerformed
 
     private void jBInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInscribirActionPerformed
