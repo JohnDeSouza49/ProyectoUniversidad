@@ -9,6 +9,7 @@ import Entidades.Materia;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -217,7 +218,14 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTCodigoDeMateriaActionPerformed
 
     private void jBEliminarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarMateriaActionPerformed
-        // TODO add your handling code here:
+        int id = Integer.parseInt(jTCodigoDeMateria.getText());
+        
+      if (jTCodigoDeMateria !=null){
+      MateriaData mt = new MateriaData();
+      mt.eliminarMateria(id);
+              
+          }
+        
     }//GEN-LAST:event_jBEliminarMateriaActionPerformed
 
     private void jBBuscarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarMateriaActionPerformed
