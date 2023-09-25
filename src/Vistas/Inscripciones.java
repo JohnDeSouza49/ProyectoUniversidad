@@ -115,6 +115,11 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         });
 
         jBAnularMateria.setText("AnularInscripcion");
+        jBAnularMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAnularMateriaActionPerformed(evt);
+            }
+        });
 
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -211,7 +216,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         idA= a.getIdAlumno(); 
         lista= id.obtenerMateriasNoCursadas(idA);
         listaNo=id.obtenerMateriasCursadas(idA);
-        boolean bandera= jRBMateriasNoInscripto.isSelected();
+        
         if(jRBMateriasNoInscripto.isSelected()==true &&jRBMateriasInscripto.isSelected()==true ){
             JOptionPane.showMessageDialog(null, "Seleccione una sola opcion");
         }
@@ -258,8 +263,22 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         }
         JOptionPane.showMessageDialog(null, "Inscripcion guardada");
         
-       // id.guardarInscripcion(nueva);
+      
     }//GEN-LAST:event_jBInscribirActionPerformed
+
+    private void jBAnularMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAnularMateriaActionPerformed
+        // TODO add your handling code here:
+        Alumno a= (Alumno)jCBAlumno.getSelectedItem();
+        int idA=a.getIdAlumno();
+        int idMateria=0;
+          int fila= jTMaterias.getSelectedRow();
+         for (int i = 0; i <= jTMaterias.getRowCount(); i++) {
+            idMateria = (int) jTMaterias.getValueAt(fila,0);
+            
+         }
+        id.borrarInscripcionMaterialAlumno(idA, idMateria);
+        
+    }//GEN-LAST:event_jBAnularMateriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

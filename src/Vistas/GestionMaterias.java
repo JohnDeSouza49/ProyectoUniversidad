@@ -198,6 +198,9 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         boolean estado = jREstadoMateria.isSelected();
         Materia mat=null;
         materiaD.guardarMateria(mat=new Materia(nombre,anio,estado));
+        jTMateria.setText("");
+        jTAnio.setText("");
+        jREstadoMateria.setText("");
        
     }//GEN-LAST:event_jBGuardarMateriaActionPerformed
 
