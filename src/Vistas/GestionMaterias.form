@@ -160,6 +160,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBBuscarMateriaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBLimpiarMateria">
       <Properties>
@@ -173,6 +176,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBEliminarMateriaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBGuardarMateria">
       <Properties>

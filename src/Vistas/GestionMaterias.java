@@ -71,6 +71,11 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         });
 
         jBBuscarMateria.setText("Buscar");
+        jBBuscarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarMateriaActionPerformed(evt);
+            }
+        });
 
         jBLimpiarMateria.setText("Nuevo");
         jBLimpiarMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -80,6 +85,11 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         });
 
         jBEliminarMateria.setText("Eliminar");
+        jBEliminarMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarMateriaActionPerformed(evt);
+            }
+        });
 
         jBGuardarMateria.setText("Guardar");
         jBGuardarMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -202,6 +212,14 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
     private void jTCodigoDeMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCodigoDeMateriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTCodigoDeMateriaActionPerformed
+
+    private void jBEliminarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarMateriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBEliminarMateriaActionPerformed
+
+    private void jBBuscarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarMateriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBBuscarMateriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
