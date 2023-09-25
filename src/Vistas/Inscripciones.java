@@ -203,8 +203,13 @@ public class Inscripciones extends javax.swing.JInternalFrame {
     private void jRBMateriasInscriptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBMateriasInscriptoActionPerformed
         // TODO add your handling code here:
          borrarFilas();
-        if(jRBMateriasNoInscripto.isSelected()==false &&jRBMateriasInscripto.isSelected()==true ){
-                for(Materia m:listaNo){
+         Alumno a= (Alumno)jCBAlumno.getSelectedItem();
+        int idA=0;
+        borrarFilas();
+        idA= a.getIdAlumno(); 
+      if(jRBMateriasNoInscripto.isSelected()==false &&jRBMateriasInscripto.isSelected()==true ){
+            lista=id.obtenerMateriasCursadas(idA);
+                for(Materia m:lista){
              modelo.addRow(new Object[]{
                 m.getIdMateria(),
                  m.getNombre(),
@@ -225,14 +230,15 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         int idA=0;
         borrarFilas();
         idA= a.getIdAlumno(); 
-        lista= id.obtenerMateriasNoCursadas(idA);
-        listaNo=id.obtenerMateriasCursadas(idA);
+       
+        lista=id.obtenerMateriasCursadas(idA);
         
         if(jRBMateriasNoInscripto.isSelected()==true &&jRBMateriasInscripto.isSelected()==true ){
             JOptionPane.showMessageDialog(null, "Seleccione una sola opcion");
         }
         if(jRBMateriasNoInscripto.isSelected()==true &&jRBMateriasInscripto.isSelected()==false ){
-        for(Materia m:lista){
+            listaNo= id.obtenerMateriasNoCursadas(idA);
+        for(Materia m:listaNo){
              modelo.addRow(new Object[]{
                 m.getIdMateria(),
                  m.getNombre(),
@@ -241,7 +247,8 @@ public class Inscripciones extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jCBAlumnoActionPerformed
         }
         if(jRBMateriasNoInscripto.isSelected()==false &&jRBMateriasInscripto.isSelected()==true ){
-                for(Materia m:listaNo){
+            lista=id.obtenerMateriasCursadas(idA);
+                for(Materia m:lista){
              modelo.addRow(new Object[]{
                 m.getIdMateria(),
                  m.getNombre(),
@@ -252,9 +259,14 @@ public class Inscripciones extends javax.swing.JInternalFrame {
     }
     private void jRBMateriasNoInscriptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBMateriasNoInscriptoActionPerformed
         // TODO add your handling code here:
+            Alumno a= (Alumno)jCBAlumno.getSelectedItem();
+        int idA=0;
+        borrarFilas();
+        idA= a.getIdAlumno(); 
         borrarFilas();
       if(jRBMateriasNoInscripto.isSelected()==true &&jRBMateriasInscripto.isSelected()==false ){
-        for(Materia m:lista){
+          listaNo= id.obtenerMateriasNoCursadas(idA);
+        for(Materia m:listaNo){
              modelo.addRow(new Object[]{
                 m.getIdMateria(),
                  m.getNombre(),
@@ -278,6 +290,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         Inscripcion nueva= new Inscripcion(0, a, materia);
         try {
             id.guardarInscripcion(nueva);
+            modelo.removeRow(fila);
         } catch (SQLException ex) {
             Logger.getLogger(Inscripciones.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -291,12 +304,13 @@ public class Inscripciones extends javax.swing.JInternalFrame {
         Alumno a= (Alumno)jCBAlumno.getSelectedItem();
         int idA=a.getIdAlumno();
         int idMateria=0;
-          int fila= jTMaterias.getSelectedRow();
+          int filas= jTMaterias.getSelectedRow();
          for (int i = 0; i <= jTMaterias.getRowCount(); i++) {
-            idMateria = (int) jTMaterias.getValueAt(fila,0);
+            idMateria = (int) jTMaterias.getValueAt(filas,0);
             
          }
         id.borrarInscripcionMaterialAlumno(idA, idMateria);
+        modelo.removeRow(filas);
         
     }//GEN-LAST:event_jBAnularMateriaActionPerformed
 
