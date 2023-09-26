@@ -1,4 +1,3 @@
-
 package Vistas;
 
 import AccesoADatos.AlumnoData;
@@ -7,7 +6,6 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import javax.swing.JOptionPane;
-
 
 public class GestionAlumnos extends javax.swing.JInternalFrame {
 
@@ -18,7 +16,6 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         this.alumnoD = alumnoD;
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -212,92 +209,83 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarAlumnoActionPerformed
-        
-      
-           
+
         //int dni = Integer.parseInt(jTDni.getText());
         String apellido = jTApellido.getText().toString();
         String nombre = jTNombre.getText().toString();
         //LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-       // boolean estado = jREstado.isSelected();
-        
-       if( apellido.isEmpty()||nombre.isEmpty()){
-           JOptionPane.showMessageDialog(null, "Debes completar todos los campos");
+        // boolean estado = jREstado.isSelected();
 
-          return;
-           
-       } try{ 
-           
-        int dni = Integer.parseInt(jTDni.getText());
-        if(dni<1000000||dni>99999999){
-            JOptionPane.showMessageDialog(null, "ingresa un DNI válido");
+        if (apellido.isEmpty() || nombre.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debes completar todos los campos");
+
             return;
+
         }
-        LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();      
-        boolean estado = jREstado.isSelected();
-        alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
-        jTDni.setText("");
-    jTApellido.setText("");
-    jTNombre.setText("");
-    jREstado.setSelected(true); 
-    jDFechaNacimiento.setDate(null);
-       }catch(NumberFormatException e){
-          JOptionPane.showMessageDialog(null, "datos incorrectos");
-          
-          jTDni.setText("");
-          jTApellido.setText("");
-          jTNombre.setText("");
-         
-          
-          
-       }catch(NullPointerException ex ){
-           JOptionPane.showMessageDialog(null, "Debes completar todos los campos");
-       }
-        
+        try {
+
+            int dni = Integer.parseInt(jTDni.getText());
+            if (dni < 1000000 || dni > 99999999) {
+                JOptionPane.showMessageDialog(null, "ingresa un DNI válido");
+                return;
+            }
+            LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            boolean estado = jREstado.isSelected();
+            alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
+            jTDni.setText("");
+            jTApellido.setText("");
+            jTNombre.setText("");
+            jREstado.setSelected(true);
+            jDFechaNacimiento.setDate(null);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "datos incorrectos");
+
+            jTDni.setText("");
+            jTApellido.setText("");
+            jTNombre.setText("");
+
+        } catch (NullPointerException ex) {
+            JOptionPane.showMessageDialog(null, "Debes completar todos los campos");
+        }
+
     }//GEN-LAST:event_jBGuardarAlumnoActionPerformed
 
     private void jBBuscarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarAlumnoActionPerformed
         // TODO add your handling code here:
-        
-        
 
-        
-            int dni = Integer.parseInt(jTDni.getText());
+        int dni = Integer.parseInt(jTDni.getText());
 
-            Alumno alumno = alumnoD.buscarAlumnoPorDni(dni);
+        Alumno alumno = alumnoD.buscarAlumnoPorDni(dni);
 
-            jTApellido.setText(alumno.getApellido());
-            jTNombre.setText(alumno.getNombre());
-            jREstado.setSelected(alumno.isEstado());
-           // LocalDate fechaNac=alumno.getFechaNacimiento();
-           //Date date = java.sql.Date.valueOf(fechaNac);
-            //jDFechaNacimiento.setDate(date);
+        jTApellido.setText(alumno.getApellido());
+        jTNombre.setText(alumno.getNombre());
+        jREstado.setSelected(alumno.isEstado());
+        LocalDate fechaNac = alumno.getFechaNacimiento();
+        Date date = java.sql.Date.valueOf(fechaNac);
+        jDFechaNacimiento.setDate(date);
 
-       
- 
-        
+
     }//GEN-LAST:event_jBBuscarAlumnoActionPerformed
 
     private void jBIngresarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBIngresarAlumnoActionPerformed
-    jTDni.setText("");
-    jTApellido.setText("");
-    jTNombre.setText("");
-    jREstado.setSelected(true); 
-    jDFechaNacimiento.setDate(null);
-    
-    
+        jTDni.setText("");
+        jTApellido.setText("");
+        jTNombre.setText("");
+        jREstado.setSelected(true);
+        jDFechaNacimiento.setDate(null);
+
 // TODO add your handling code here:
     }//GEN-LAST:event_jBIngresarAlumnoActionPerformed
 
     private void jBEliminarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarAlumnoActionPerformed
-     int dni = Integer.parseInt(jTDni.getText());
-        if (jTDni!=null){
-        
-   AlumnoData  alumno =new AlumnoData();
-   Alumno a = alumno.buscarAlumnoPorDni(dni);
-   
-   alumno.eliminarAlumno(a.getIdAlumno());
-       
+        int dni = Integer.parseInt(jTDni.getText());
+        if (jTDni != null) {
+
+            AlumnoData alumno = new AlumnoData();
+            Alumno a = alumno.buscarAlumnoPorDni(dni);
+
+            alumno.eliminarAlumno(a.getIdAlumno());
+
     }//GEN-LAST:event_jBEliminarAlumnoActionPerformed
     }
 

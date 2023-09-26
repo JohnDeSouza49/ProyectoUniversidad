@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
  * @author Ivan Martin
  */
 public class GestionMaterias extends javax.swing.JInternalFrame {
-   
 
     /**
      * Creates new form GestionMaterias
@@ -197,21 +196,29 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         String nombre = jTMateria.getText();
         int anio = Integer.parseInt(jTAnio.getText());
         boolean estado = jREstadoMateria.isSelected();
-        Materia mat=null;
-        List<Materia> listaM= new ArrayList<>();
+        Materia mat = null;
+        int idMateria=Integer.parseInt(jTCodigoDeMateria.getText());
+        List<Materia> listaM = new ArrayList<>();
         listaM = materiaD.listaTodasLasMaterias();
         for (Materia materia : listaM) {
-          
-            if(materia.getNombre().equals(nombre) && materia.getAnio() == anio){
-               JOptionPane.showMessageDialog(null,"todo bien");   
+
+            if (materia.getNombre().equals(nombre) && materia.getAnio() == anio) {
+
+                materiaD.modificarMateria(mat = new Materia(idMateria, nombre, anio, estado));
+                
+                JOptionPane.showMessageDialog(null, "La materia ya existe, y ha sido modificado su estado");
+                break;
+            } else {
+                materiaD.guardarMateria(mat = new Materia(nombre, anio, estado));
+                jTMateria.setText("");
+                jTAnio.setText("");
+                jREstadoMateria.setText("");
+
             }
-            
+
         }
-        materiaD.guardarMateria(mat=new Materia(nombre,anio,estado));
-        jTMateria.setText("");
-        jTAnio.setText("");
-        jREstadoMateria.setText("");
-       
+
+
     }//GEN-LAST:event_jBGuardarMateriaActionPerformed
 
     private void jBLimpiarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarMateriaActionPerformed
@@ -227,7 +234,7 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTCodigoDeMateriaActionPerformed
 
     private void jBEliminarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarMateriaActionPerformed
-       try {
+        try {
 
             int id = Integer.parseInt(jTCodigoDeMateria.getText());
 
@@ -239,21 +246,20 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Debe buscar un alumno para poder eliminarlo");
         }
-        
+
     }//GEN-LAST:event_jBEliminarMateriaActionPerformed
 
     private void jBBuscarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarMateriaActionPerformed
-            
-        
-        try{
-           int id_materia = Integer.parseInt(jTCodigoDeMateria.getText());
+
+        try {
+            int id_materia = Integer.parseInt(jTCodigoDeMateria.getText());
 
             Materia materia = materiaD.buscarMateria(id_materia);
 
             jTMateria.setText(materia.getNombre());
-            jTAnio.setText(String.valueOf(materia.getAnio())); 
-            jREstadoMateria.setSelected(materia.isEstado()); 
-        }catch(NumberFormatException ex){
+            jTAnio.setText(String.valueOf(materia.getAnio()));
+            jREstadoMateria.setSelected(materia.isEstado());
+        } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Ingrese un codigo");
         }
     }//GEN-LAST:event_jBBuscarMateriaActionPerformed
