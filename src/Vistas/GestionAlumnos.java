@@ -279,6 +279,7 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         LocalDate fechaNac = alumno.getFechaNacimiento();
         Date date = java.sql.Date.valueOf(fechaNac);
         jDFechaNacimiento.setDate(date);
+        //hola
 
 
     }//GEN-LAST:event_jBBuscarAlumnoActionPerformed
