@@ -201,8 +201,9 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         List<Materia> listaM= new ArrayList<>();
         listaM = materiaD.listaTodasLasMaterias();
         for (Materia materia : listaM) {
-            if(materia.getNombre()==nombre && materia.getAnio()==anio){
-                JOptionPane.showMessageDialog(null,"todo bien");
+          
+            if(materia.getNombre().equals(nombre) && materia.getAnio() == anio){
+               JOptionPane.showMessageDialog(null,"todo bien");   
             }
             
         }
