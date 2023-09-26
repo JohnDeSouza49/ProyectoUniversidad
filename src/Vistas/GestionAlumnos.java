@@ -269,9 +269,9 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
             jTApellido.setText(alumno.getApellido());
             jTNombre.setText(alumno.getNombre());
             jREstado.setSelected(alumno.isEstado());
-            LocalDate fechaNac=alumno.getFechaNacimiento();
-            Date date = java.sql.Date.valueOf(fechaNac);
-            jDFechaNacimiento.setDate(date);
+           // LocalDate fechaNac=alumno.getFechaNacimiento();
+           //Date date = java.sql.Date.valueOf(fechaNac);
+            //jDFechaNacimiento.setDate(date);
 
        
  
