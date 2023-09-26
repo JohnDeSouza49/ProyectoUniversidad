@@ -2,9 +2,12 @@ package Vistas;
 
 import AccesoADatos.AlumnoData;
 import Entidades.Alumno;
+import Entidades.Materia;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class GestionAlumnos extends javax.swing.JInternalFrame {
@@ -231,7 +234,20 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
             }
             LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             boolean estado = jREstado.isSelected();
-            alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
+            List<Alumno> listaA = new ArrayList<>();
+            Alumno a= new Alumno(dni, apellido, nombre, fechaNacimiento, estado);
+            listaA = alumnoD.listarAlumnos();
+            for(Alumno aux: listaA){
+                if(aux.getDni()!=dni){
+                   alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
+                   break;
+                }else{
+             Alumno nuevo= new Alumno(aux.getIdAlumno(), dni, apellido, nombre, fechaNacimiento, estado);
+                    alumnoD.modificarAlumno(nuevo);
+
+                    }
+           
+            }
             jTDni.setText("");
             jTApellido.setText("");
             jTNombre.setText("");

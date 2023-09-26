@@ -48,10 +48,25 @@ public class AlumnoData {
             ps.close();
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno" + ex.getMessage());
+          int dni= alumno.getDni();
+          int auxDni=0;
+         List<Alumno> lista= new ArrayList<>();
+         lista=listarAlumnos();
+         for(Alumno aux: lista){
+             if(aux.getDni()==dni){
+                 auxDni=aux.getDni();
+             }
+         }
+         if(auxDni==dni){
+             JOptionPane.showMessageDialog(null, "Este dni ya existe, el alumno ha sido modificado");
+            
+         }else
+          JOptionPane.showMessageDialog(null, "error al acceder a la tabla alumno"+ex.getMessage());
         }
-
     }
+
+    
+    
 
     public Alumno buscarAlumno(int id) {
         Alumno alumno = null;
@@ -84,7 +99,7 @@ public class AlumnoData {
 
     public Alumno buscarAlumnoPorDni(int dni) {
         Alumno alumno = null;
-        String sql = "SELECT id_alumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni=? AND estado = 1";
+        String sql = "SELECT id_alumno, dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni=?";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
@@ -116,7 +131,7 @@ public class AlumnoData {
         List<Alumno> alumnos = new ArrayList<>();
         Alumno alumno=null;
         try {
-            String sql = "SELECT * FROM alumno WHERE estado=1;";
+            String sql = "SELECT * FROM alumno";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -139,7 +154,7 @@ public class AlumnoData {
 
     public void modificarAlumno(Alumno alumno) {
 
-        String sql = "UPDATE alumno SET dni = ? , apellido = ?, nombre = ?, fechaNacimiento = ? WHERE id_alumno = ?";
+        String sql = "UPDATE alumno SET dni=?,apellido=?,nombre=?,fechaNacimiento=?,estado=? WHERE id_alumno=?";
         PreparedStatement ps = null;
 
         try {
@@ -148,11 +163,12 @@ public class AlumnoData {
             ps.setString(2, alumno.getApellido());
             ps.setString(3, alumno.getNombre());
             ps.setDate(4, Date.valueOf(alumno.getFechaNacimiento()));
-            ps.setInt(5, alumno.getIdAlumno());
+            ps.setBoolean(5, alumno.isEstado());
+            ps.setInt(6, alumno.getIdAlumno());
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
-                JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
+              //  JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
             } else {
                 JOptionPane.showMessageDialog(null, "El alumno no existe");
             }
