@@ -20,6 +20,8 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
     /**
      * Creates new form GestionMaterias
      */
+    
+    //hola
     private MateriaData materiaD;
 
     public GestionMaterias(MateriaData materiaD) {
