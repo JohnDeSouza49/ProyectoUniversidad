@@ -238,13 +238,18 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
 
     private void jBBuscarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarMateriaActionPerformed
             
+        
+        try{
            int id_materia = Integer.parseInt(jTCodigoDeMateria.getText());
 
             Materia materia = materiaD.buscarMateria(id_materia);
 
             jTMateria.setText(materia.getNombre());
             jTAnio.setText(String.valueOf(materia.getAnio())); 
-            jREstadoMateria.setSelected(materia.isEstado());     
+            jREstadoMateria.setSelected(materia.isEstado()); 
+        }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "Ingrese un codigo");
+        }
     }//GEN-LAST:event_jBBuscarMateriaActionPerformed
 
 
