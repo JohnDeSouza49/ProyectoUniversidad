@@ -226,13 +226,18 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTCodigoDeMateriaActionPerformed
 
     private void jBEliminarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarMateriaActionPerformed
-        int id = Integer.parseInt(jTCodigoDeMateria.getText());
-        
-      if (jTCodigoDeMateria !=null){
-      MateriaData mt = new MateriaData();
-      mt.eliminarMateria(id);
-              
-          }
+       try {
+
+            int id = Integer.parseInt(jTCodigoDeMateria.getText());
+
+            if (jTCodigoDeMateria != null) {
+                MateriaData mt = new MateriaData();
+                mt.eliminarMateria(id);
+
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Debe buscar un alumno para poder eliminarlo");
+        }
         
     }//GEN-LAST:event_jBEliminarMateriaActionPerformed
 
