@@ -234,16 +234,19 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
             Alumno a = new Alumno(dni, apellido, nombre, fechaNacimiento, estado);
             listaA = alumnoD.listarAlumnos();
             for (Alumno aux : listaA) {
-                if (aux.getDni() != dni) {
-                    alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
-                    break;
-                } else {
-                    Alumno nuevo = new Alumno(aux.getIdAlumno(), dni, apellido, nombre, fechaNacimiento, estado);
+               if(aux.getDni()==dni){
+                    Alumno nuevo= new Alumno(aux.getIdAlumno(), dni, apellido, nombre, fechaNacimiento, estado);
                     alumnoD.modificarAlumno(nuevo);
 
+                }else{
+                alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
+              break;
+                    }
                 }
 
-            }
+            
+            
+            
             jTDni.setText("");
             jTApellido.setText("");
             jTNombre.setText("");
@@ -300,6 +303,7 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
                 Alumno a = alumno.buscarAlumnoPorDni(dni);
 
                 alumno.eliminarAlumno(a.getIdAlumno());
+                jREstado.setSelected(false);
             }
         } catch (NumberFormatException exc) {
             JOptionPane.showMessageDialog(null, "Debe buscar un alumno para poder eliminarlo");

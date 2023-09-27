@@ -49,7 +49,7 @@ public class AlumnoData {
                 }
             }
             if (auxDni == dni) {
-                JOptionPane.showMessageDialog(null, "Este dni ya existe, el alumno ha sido modificado");
+                JOptionPane.showMessageDialog(null, "Alumno guardado y/o modificado");
 
             } else {
                 JOptionPane.showMessageDialog(null, "error al acceder a la tabla alumno" + ex.getMessage());
