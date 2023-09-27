@@ -162,7 +162,9 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jCBAlumnoActionPerformed
 
     private void jBGuardarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarNotaActionPerformed
-       Alumno a = (Alumno)jCBAlumno.getSelectedItem();
+      
+        try{
+        Alumno a = (Alumno)jCBAlumno.getSelectedItem();
         int idAlumno = a.getIdAlumno();
         int fila= jTNotaMateria.getSelectedRow();
         for (int i = 0; i <= jTNotaMateria.getRowCount(); i++) {
@@ -173,7 +175,12 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
             id.actualizarNota( idAlumno, idMateria, nota); 
             
     }//GEN-LAST:event_jBGuardarNotaActionPerformed
-    JOptionPane.showMessageDialog(null, "nota modificada");
+    
+        
+        JOptionPane.showMessageDialog(null, "nota modificada");
+        }catch(ArrayIndexOutOfBoundsException exc){
+            JOptionPane.showMessageDialog(null, "Error al guardar nota");
+        }
     }
     
     private void jBSalirdeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirdeNotasActionPerformed
