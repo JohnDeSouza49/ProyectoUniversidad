@@ -2,7 +2,6 @@ package Vistas;
 
 import AccesoADatos.AlumnoData;
 import Entidades.Alumno;
-import Entidades.Materia;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -213,11 +212,8 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
 
     private void jBGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarAlumnoActionPerformed
 
-        //int dni = Integer.parseInt(jTDni.getText());
         String apellido = jTApellido.getText().toString();
         String nombre = jTNombre.getText().toString();
-        //LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        // boolean estado = jREstado.isSelected();
 
         if (apellido.isEmpty() || nombre.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debes completar todos los campos");
@@ -291,7 +287,7 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         jREstado.setSelected(true);
         jDFechaNacimiento.setDate(null);
 
-// TODO add your handling code here:
+
     }//GEN-LAST:event_jBIngresarAlumnoActionPerformed
 
     private void jBEliminarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarAlumnoActionPerformed

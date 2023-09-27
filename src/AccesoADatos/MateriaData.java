@@ -117,7 +117,7 @@ public void modificarMateria(Materia mat) {
             int exito = ps.executeUpdate();
             ps.close();
            if (exito == 1) {
-              //JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
+             
            } else {
                JOptionPane.showMessageDialog(null, "La materia no existe");
             }

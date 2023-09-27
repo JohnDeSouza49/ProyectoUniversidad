@@ -1,14 +1,5 @@
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package AccesoADatos;
 
-/**
- *
- * @author Kanji
- */
 import Entidades.Alumno;
 import java.sql.Connection;
 import java.sql.Date;
@@ -48,25 +39,23 @@ public class AlumnoData {
             ps.close();
 
         } catch (SQLException ex) {
-          int dni= alumno.getDni();
-          int auxDni=0;
-         List<Alumno> lista= new ArrayList<>();
-         lista=listarAlumnos();
-         for(Alumno aux: lista){
-             if(aux.getDni()==dni){
-                 auxDni=aux.getDni();
-             }
-         }
-         if(auxDni==dni){
-             JOptionPane.showMessageDialog(null, "Este dni ya existe, el alumno ha sido modificado");
-            
-         }else
-          JOptionPane.showMessageDialog(null, "error al acceder a la tabla alumno"+ex.getMessage());
+            int dni = alumno.getDni();
+            int auxDni = 0;
+            List<Alumno> lista = new ArrayList<>();
+            lista = listarAlumnos();
+            for (Alumno aux : lista) {
+                if (aux.getDni() == dni) {
+                    auxDni = aux.getDni();
+                }
+            }
+            if (auxDni == dni) {
+                JOptionPane.showMessageDialog(null, "Este dni ya existe, el alumno ha sido modificado");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "error al acceder a la tabla alumno" + ex.getMessage());
+            }
         }
     }
-
-    
-    
 
     public Alumno buscarAlumno(int id) {
         Alumno alumno = null;
@@ -129,7 +118,7 @@ public class AlumnoData {
     public List<Alumno> listarAlumnos() {
 
         List<Alumno> alumnos = new ArrayList<>();
-        Alumno alumno=null;
+        Alumno alumno = null;
         try {
             String sql = "SELECT * FROM alumno";
             PreparedStatement ps = con.prepareStatement(sql);
@@ -144,7 +133,7 @@ public class AlumnoData {
                 alumno.setEstado(rs.getBoolean("estado"));
                 alumnos.add(alumno);
             }
-            ps.close();  
+            ps.close();
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Alumno " + ex.getMessage());
@@ -168,7 +157,7 @@ public class AlumnoData {
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
-              //  JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
+                //  JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
             } else {
                 JOptionPane.showMessageDialog(null, "El alumno no existe");
             }

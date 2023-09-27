@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package Vistas;
 
 import AccesoADatos.AlumnoData;
@@ -15,25 +11,25 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-
 public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
-    private DefaultComboBoxModel cbmodelo= null;
-    private  DefaultTableModel modeloNotas = new DefaultTableModel(){
-        public boolean isCellEditable(int f, int c){
-        return c==2;
-    }
+
+    private DefaultComboBoxModel cbmodelo = null;
+    private DefaultTableModel modeloNotas = new DefaultTableModel() {
+        public boolean isCellEditable(int f, int c) {
+            return c == 2;
+        }
     };
-            
+
     private AlumnoData ad;
     private InscripcionData id;
-    public ActualizacionDeNotas(AlumnoData ad, InscripcionData id ) {
-        this.id=id;
-        this.ad=ad;
+
+    public ActualizacionDeNotas(AlumnoData ad, InscripcionData id) {
+        this.id = id;
+        this.ad = ad;
         initComponents();
         armarEncabezado();
         llenarCB();
-        
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -141,50 +137,48 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCBAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBAlumnoActionPerformed
-         Alumno alumno= (Alumno) jCBAlumno.getSelectedItem();
-         borrarFilas();
-         int idAlumno= alumno.getIdAlumno();
-         List<Materia> mCursadas= new ArrayList<>();
-         mCursadas= id.obtenerMateriasCursadas(idAlumno);
-         List<Inscripcion>lista= new ArrayList<>();
-         lista= id.obtenerInscripcionesPorAlumno(idAlumno);     
-         if(alumno!=null){
-             for(Inscripcion m:lista){
-             modeloNotas.addRow(new Object[]{
-                m.getMateria().getIdMateria(),
-                m.getMateria().getNombre(),
-                m.getNota()
-                
-             });
-             }
-         }
-         
+        Alumno alumno = (Alumno) jCBAlumno.getSelectedItem();
+        borrarFilas();
+        int idAlumno = alumno.getIdAlumno();
+        List<Materia> mCursadas = new ArrayList<>();
+        mCursadas = id.obtenerMateriasCursadas(idAlumno);
+        List<Inscripcion> lista = new ArrayList<>();
+        lista = id.obtenerInscripcionesPorAlumno(idAlumno);
+        if (alumno != null) {
+            for (Inscripcion m : lista) {
+                modeloNotas.addRow(new Object[]{
+                    m.getMateria().getIdMateria(),
+                    m.getMateria().getNombre(),
+                    m.getNota()
+
+                });
+            }
+        }
+
     }//GEN-LAST:event_jCBAlumnoActionPerformed
 
     private void jBGuardarNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarNotaActionPerformed
-      
-        try{
-        Alumno a = (Alumno)jCBAlumno.getSelectedItem();
-        int idAlumno = a.getIdAlumno();
-        int fila= jTNotaMateria.getSelectedRow();
-        for (int i = 0; i <= jTNotaMateria.getRowCount(); i++) {
-            int idMateria = (int) jTNotaMateria.getValueAt(fila,0); 
-          double nota = Double.parseDouble(jTNotaMateria.getValueAt(fila, 2).toString()) ;
-           // parseo el double        
-          
-            id.actualizarNota( idAlumno, idMateria, nota); 
-            
+
+        try {
+            Alumno a = (Alumno) jCBAlumno.getSelectedItem();
+            int idAlumno = a.getIdAlumno();
+            int fila = jTNotaMateria.getSelectedRow();
+            for (int i = 0; i <= jTNotaMateria.getRowCount(); i++) {
+                int idMateria = (int) jTNotaMateria.getValueAt(fila, 0);
+                double nota = Double.parseDouble(jTNotaMateria.getValueAt(fila, 2).toString());
+
+                id.actualizarNota(idAlumno, idMateria, nota);
+
     }//GEN-LAST:event_jBGuardarNotaActionPerformed
-    
-        
-        JOptionPane.showMessageDialog(null, "nota modificada");
-        }catch(ArrayIndexOutOfBoundsException exc){
+
+            JOptionPane.showMessageDialog(null, "nota modificada");
+        } catch (ArrayIndexOutOfBoundsException exc) {
             JOptionPane.showMessageDialog(null, "Error al guardar nota");
         }
     }
-    
+
     private void jBSalirdeNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirdeNotasActionPerformed
-        // TODO add your handling code here:
+
         this.dispose();
     }//GEN-LAST:event_jBSalirdeNotasActionPerformed
 
@@ -199,25 +193,27 @@ public class ActualizacionDeNotas extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTNotaMateria;
     // End of variables declaration//GEN-END:variables
-private void armarEncabezado(){
-    modeloNotas.addColumn("CÓDIGO");
-    modeloNotas.addColumn("NOMBRE");
-    modeloNotas.addColumn("NOTA");
-    jTNotaMateria.setModel(modeloNotas);
-}
-private void llenarCB(){
-    cbmodelo= new DefaultComboBoxModel();
-   jCBAlumno.setModel(cbmodelo);
-     for(Alumno aux:ad.listarAlumnos())           
-      cbmodelo.addElement(aux);
-            
-}
-private void borrarFilas(){
-    int filas=jTNotaMateria.getRowCount()-1;
-    for(int f=filas;f>=0;f--){
-        modeloNotas.removeRow(f);
+private void armarEncabezado() {
+        modeloNotas.addColumn("CÓDIGO");
+        modeloNotas.addColumn("NOMBRE");
+        modeloNotas.addColumn("NOTA");
+        jTNotaMateria.setModel(modeloNotas);
     }
-}
- 
-      
+
+    private void llenarCB() {
+        cbmodelo = new DefaultComboBoxModel();
+        jCBAlumno.setModel(cbmodelo);
+        for (Alumno aux : ad.listarAlumnos()) {
+            cbmodelo.addElement(aux);
+        }
+
+    }
+
+    private void borrarFilas() {
+        int filas = jTNotaMateria.getRowCount() - 1;
+        for (int f = filas; f >= 0; f--) {
+            modeloNotas.removeRow(f);
+        }
+    }
+
 }

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package Vistas;
 
 import AccesoADatos.Conexion;
@@ -12,37 +8,35 @@ import Entidades.Materia;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
-    //public static TreeSet<Materia> listaMaterias= new TreeSet<>();
+
     private DefaultTableModel modeloMateria = new DefaultTableModel();
-    private DefaultComboBoxModel modelito= null;
-   private MateriaData materiaD;
-   private InscripcionData insD;
-    private Connection conex=null;
-    
-            private void llenarCB(){
-                modelito= new DefaultComboBoxModel();
-                jCBMateria.setModel(modelito);
-                for(Materia aux:materiaD.listaMaterias()){
-                    modelito.addElement(aux);
- 
-                }
+    private DefaultComboBoxModel modelito = null;
+    private MateriaData materiaD;
+    private InscripcionData insD;
+    private Connection conex = null;
 
-            }
+    private void llenarCB() {
+        modelito = new DefaultComboBoxModel();
+        jCBMateria.setModel(modelito);
+        for (Materia aux : materiaD.listaMaterias()) {
+            modelito.addElement(aux);
 
-    public ConsultaAlumnoPorMateria(MateriaData materiaD,InscripcionData insD) {
-        this.materiaD=materiaD;
-        this.insD=insD;
-        conex= Conexion.getConexion();
+        }
+
+    }
+
+    public ConsultaAlumnoPorMateria(MateriaData materiaD, InscripcionData insD) {
+        this.materiaD = materiaD;
+        this.insD = insD;
+        conex = Conexion.getConexion();
         initComponents();
         armarEncabezado();
         llenarCB();
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -137,24 +131,24 @@ public class ConsultaAlumnoPorMateria extends javax.swing.JInternalFrame {
 
     private void jCBMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriaActionPerformed
 
-       Materia materia= (Materia)jCBMateria.getSelectedItem();
-       borrarFilas();
-       int id= materia.getIdMateria();
-        if(materia!=null){
-          List<Alumno> alumnos= new ArrayList<>();
-           alumnos=insD.obtenerAlumnosXMateria(id);
-            for(Alumno a:alumnos){
-                 modeloMateria.addRow(new Object[]{
-                       a.getIdAlumno(),
-                        a.getDni(),
-                         a.getApellido(),
-                         a.getNombre()
-                                 
-    });
+        Materia materia = (Materia) jCBMateria.getSelectedItem();
+        borrarFilas();
+        int id = materia.getIdMateria();
+        if (materia != null) {
+            List<Alumno> alumnos = new ArrayList<>();
+            alumnos = insD.obtenerAlumnosXMateria(id);
+            for (Alumno a : alumnos) {
+                modeloMateria.addRow(new Object[]{
+                    a.getIdAlumno(),
+                    a.getDni(),
+                    a.getApellido(),
+                    a.getNombre()
+
+                });
             }
         }
-        
-   
+
+
     }//GEN-LAST:event_jCBMateriaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -172,11 +166,12 @@ private void armarEncabezado() {
         modeloMateria.addColumn("NOMBRE");
         jTMaterias.setModel(modeloMateria);
     }
-private void borrarFilas(){
-    int filas=jTMaterias.getRowCount()-1;
-    for(int f=filas;f>=0;f--){
-        modeloMateria.removeRow(f);
+
+    private void borrarFilas() {
+        int filas = jTMaterias.getRowCount() - 1;
+        for (int f = filas; f >= 0; f--) {
+            modeloMateria.removeRow(f);
+        }
     }
-}
 
 }
