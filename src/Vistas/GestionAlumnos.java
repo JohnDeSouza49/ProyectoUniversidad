@@ -212,8 +212,8 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
 
     private void jBGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarAlumnoActionPerformed
 
-        String apellido = jTApellido.getText().toString();
-        String nombre = jTNombre.getText().toString();
+        String apellido = jTApellido.getText();
+        String nombre = jTNombre.getText();
 
         if (apellido.isEmpty() || nombre.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debes completar todos los campos");
@@ -275,7 +275,7 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         LocalDate fechaNac = alumno.getFechaNacimiento();
         Date date = java.sql.Date.valueOf(fechaNac);
         jDFechaNacimiento.setDate(date);
-        //hola
+       
 
 
     }//GEN-LAST:event_jBBuscarAlumnoActionPerformed
