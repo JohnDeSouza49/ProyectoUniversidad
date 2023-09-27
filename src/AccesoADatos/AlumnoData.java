@@ -168,7 +168,7 @@ public class AlumnoData {
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
-              //  JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
+             // JOptionPane.showMessageDialog(null, "Modificado Exitosamente.");
             } else {
                 JOptionPane.showMessageDialog(null, "El alumno no existe");
             }
