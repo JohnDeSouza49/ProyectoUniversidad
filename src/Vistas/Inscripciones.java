@@ -278,6 +278,7 @@ public class Inscripciones extends javax.swing.JInternalFrame {
 
     private void jBInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInscribirActionPerformed
         // TODO add your handling code here:
+        try{
          Alumno a= (Alumno)jCBAlumno.getSelectedItem();
          int idMateria=0;
           Materia materia=null;
@@ -295,7 +296,9 @@ public class Inscripciones extends javax.swing.JInternalFrame {
             Logger.getLogger(Inscripciones.class.getName()).log(Level.SEVERE, null, ex);
         }
         JOptionPane.showMessageDialog(null, "Inscripcion guardada");
-        
+        }catch(ArrayIndexOutOfBoundsException exc){
+            JOptionPane.showMessageDialog(null, "Busque un alumno para poder inscribir");
+        }  
       
     }//GEN-LAST:event_jBInscribirActionPerformed
 

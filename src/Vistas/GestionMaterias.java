@@ -246,7 +246,7 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
 
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Debe buscar un alumno para poder eliminarlo");
+            JOptionPane.showMessageDialog(null, "Debe buscar una materia para poder eliminarla");
         }
 
     }//GEN-LAST:event_jBEliminarMateriaActionPerformed

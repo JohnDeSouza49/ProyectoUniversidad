@@ -235,18 +235,18 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
             LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             boolean estado = jREstado.isSelected();
             List<Alumno> listaA = new ArrayList<>();
-            Alumno a= new Alumno(dni, apellido, nombre, fechaNacimiento, estado);
+            Alumno a = new Alumno(dni, apellido, nombre, fechaNacimiento, estado);
             listaA = alumnoD.listarAlumnos();
-            for(Alumno aux: listaA){
-                if(aux.getDni()!=dni){
-                   alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
-                   break;
-                }else{
-             Alumno nuevo= new Alumno(aux.getIdAlumno(), dni, apellido, nombre, fechaNacimiento, estado);
+            for (Alumno aux : listaA) {
+                if (aux.getDni() != dni) {
+                    alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
+                    break;
+                } else {
+                    Alumno nuevo = new Alumno(aux.getIdAlumno(), dni, apellido, nombre, fechaNacimiento, estado);
                     alumnoD.modificarAlumno(nuevo);
 
-                    }
-           
+                }
+
             }
             jTDni.setText("");
             jTApellido.setText("");
@@ -295,16 +295,21 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBIngresarAlumnoActionPerformed
 
     private void jBEliminarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarAlumnoActionPerformed
-        int dni = Integer.parseInt(jTDni.getText());
-        if (jTDni != null) {
 
-            AlumnoData alumno = new AlumnoData();
-            Alumno a = alumno.buscarAlumnoPorDni(dni);
+        try {
+            int dni = Integer.parseInt(jTDni.getText());
+            if (jTDni != null) {
 
-            alumno.eliminarAlumno(a.getIdAlumno());
+                AlumnoData alumno = new AlumnoData();
+                Alumno a = alumno.buscarAlumnoPorDni(dni);
 
+                alumno.eliminarAlumno(a.getIdAlumno());
+            }
+        } catch (NumberFormatException exc) {
+            JOptionPane.showMessageDialog(null, "Debe buscar un alumno para poder eliminarlo");
+        }
     }//GEN-LAST:event_jBEliminarAlumnoActionPerformed
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscarAlumno;
