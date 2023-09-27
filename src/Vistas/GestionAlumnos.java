@@ -211,10 +211,11 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBGuardarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarAlumnoActionPerformed
-
+ 
         String apellido = jTApellido.getText();
         String nombre = jTNombre.getText();
-
+        int dni = Integer.parseInt(jTDni.getText());
+        
         if (apellido.isEmpty() || nombre.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debes completar todos los campos");
 
@@ -223,29 +224,27 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         }
         try {
 
-            int dni = Integer.parseInt(jTDni.getText());
+            
             if (dni < 1000000 || dni > 99999999) {
                 JOptionPane.showMessageDialog(null, "ingresa un DNI válido");
                 return;
             }
             LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            boolean estado = jREstado.isSelected();
-            List<Alumno> listaA = new ArrayList<>();
+            boolean estado = jREstado.isSelected();  
             Alumno a = new Alumno(dni, apellido, nombre, fechaNacimiento, estado);
-            listaA = alumnoD.listarAlumnos();
+            List<Alumno> listaA = new ArrayList<>();
+            listaA = alumnoD.listarAlumnos(); 
             for (Alumno aux : listaA) {
                if(aux.getDni()==dni){
                     Alumno nuevo= new Alumno(aux.getIdAlumno(), dni, apellido, nombre, fechaNacimiento, estado);
                     alumnoD.modificarAlumno(nuevo);
-
+                    JOptionPane.showMessageDialog(null,dni);
                 }else{
                 alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
               break;
                     }
                 }
 
-            
-            
             
             jTDni.setText("");
             jTApellido.setText("");
@@ -271,7 +270,6 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
         int dni = Integer.parseInt(jTDni.getText());
 
         Alumno alumno = alumnoD.buscarAlumnoPorDni(dni);
-
         jTApellido.setText(alumno.getApellido());
         jTNombre.setText(alumno.getNombre());
         jREstado.setSelected(alumno.isEstado());

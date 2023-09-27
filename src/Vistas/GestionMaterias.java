@@ -180,24 +180,30 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         int anio = Integer.parseInt(jTAnio.getText());
         boolean estado = jREstadoMateria.isSelected();
         Materia mat = null;
-        int idMateria = Integer.parseInt(jTCodigoDeMateria.getText());
+       
         List<Materia> listaM = new ArrayList<>();
         listaM = materiaD.listaTodasLasMaterias();
         for (Materia materia : listaM) {
 
             if (materia.getNombre().equals(nombre) && materia.getAnio() == anio) {
-
+               int idMateria = Integer.parseInt(jTCodigoDeMateria.getText());
                 materiaD.modificarMateria(mat = new Materia(idMateria, nombre, anio, estado));
 
                 JOptionPane.showMessageDialog(null, "La materia ya existe, y ha sido modificado su estado");
-                break;
+                
             } else {
-                materiaD.guardarMateria(mat = new Materia(nombre, anio, estado));
-                jTMateria.setText("");
-                jTAnio.setText("");
-                jREstadoMateria.setText("");
+                mat = new Materia();
+                mat.setAnio(anio);
+                mat.setNombre(nombre);
+                mat.setEstado(estado);
+                materiaD.guardarMateria(mat);
+                break;
+               
 
             }
+            jTMateria.setText("");
+                jTAnio.setText("");
+                jREstadoMateria.setText("");
 
         }
 
@@ -224,7 +230,7 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
             if (jTCodigoDeMateria != null) {
                 MateriaData mt = new MateriaData();
                 mt.eliminarMateria(id);
-
+                jREstadoMateria.setSelected(false);
             }
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Debe buscar una materia para poder eliminarla");
