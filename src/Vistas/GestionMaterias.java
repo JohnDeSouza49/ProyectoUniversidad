@@ -198,11 +198,14 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
 
 
     } catch(NumberFormatException e){
+        if(nombre==null ){
          Materia mat=new Materia();
                 mat.setNombre(nombre);
                 mat.setAnio(anio);
                 mat.setEstado(estado);
-                materiaD.guardarMateria(mat);
+                materiaD.guardarMateria(mat);     
+        }
+        JOptionPane.showMessageDialog(null, "error al agregar materia");
     }
 
     }//GEN-LAST:event_jBGuardarMateriaActionPerformed
