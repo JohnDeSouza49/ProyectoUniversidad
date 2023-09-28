@@ -179,32 +179,31 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         String nombre = jTMateria.getText();
         int anio = Integer.parseInt(jTAnio.getText());
         boolean estado = jREstadoMateria.isSelected();
-        Materia mat = null;
-       Materia a=null;
+        try{
+        int idMateria = Integer.parseInt(jTCodigoDeMateria.getText());
+             Materia mat = null;
+        Materia a=null;
         List<Materia> listaM = new ArrayList<>();
         listaM = materiaD.listaTodasLasMaterias();
         for (Materia materia : listaM) {
-            if (materia.getNombre().equals(nombre) && materia.getAnio() == anio) {
-               int idMateria = Integer.parseInt(jTCodigoDeMateria.getText());
-               a=new Materia(idMateria, nombre, anio, estado);
-                materiaD.modificarMateria(a);
-                JOptionPane.showMessageDialog(null, "La materia ya existe, y ha sido modificado su estado");
+            if(materia.getNombre().equals(nombre)&& materia.getAnio()==anio){
+                mat=new Materia(idMateria, nombre, anio, estado);
+                materiaD.modificarMateria(mat);
                 break;
-            } else {
-                mat = new Materia();
-                mat.setAnio(anio);
-                mat.setNombre(nombre);
-                mat.setEstado(estado);
-                materiaD.guardarMateria(mat);
-                break;
-               
-
-            }
+            } 
      }
-        jTMateria.setText("");
+                jTMateria.setText("");
                 jTAnio.setText("");
                 jREstadoMateria.setText("");
 
+
+    } catch(NumberFormatException e){
+         Materia mat=new Materia();
+                mat.setNombre(nombre);
+                mat.setAnio(anio);
+                mat.setEstado(estado);
+                materiaD.guardarMateria(mat);
+    }
 
     }//GEN-LAST:event_jBGuardarMateriaActionPerformed
 
