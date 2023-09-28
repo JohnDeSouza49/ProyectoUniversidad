@@ -198,7 +198,7 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
 
 
     } catch(NumberFormatException e){
-        if(nombre==null ){
+        if(nombre!=null ){
          Materia mat=new Materia();
                 mat.setNombre(nombre);
                 mat.setAnio(anio);
