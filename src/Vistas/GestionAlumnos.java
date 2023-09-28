@@ -2,6 +2,7 @@ package Vistas;
 
 import AccesoADatos.AlumnoData;
 import Entidades.Alumno;
+import Entidades.Materia;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -250,10 +251,18 @@ public class GestionAlumnos extends javax.swing.JInternalFrame {
             }
             LocalDate fechaNacimiento = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             boolean estado = jREstado.isSelected();  
-            alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
+            List<Alumno> listaA = new ArrayList<>();
+        listaA = alumnoD.listarTodosLosAlumnos();
+        for(Alumno aux: listaA){
+            if(dni==aux.getDni()){
+            JOptionPane.showMessageDialog(null, "Este alumno ya existe");
             
-
+        }else{
+                alumnoD.guardarAlumno(new Alumno(dni, apellido, nombre, fechaNacimiento, estado));
+                }
             
+         break;
+        } 
             jTDni.setText("");
             jTApellido.setText("");
             jTNombre.setText("");
