@@ -205,7 +205,7 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
                 mat.setEstado(estado);
                 materiaD.guardarMateria(mat);     
         }
-        JOptionPane.showMessageDialog(null, "error al agregar materia");
+        
     }
 
     }//GEN-LAST:event_jBGuardarMateriaActionPerformed
